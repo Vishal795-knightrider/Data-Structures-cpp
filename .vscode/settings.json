@@ -1,0 +1,19 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "random": "cpp",
+        "vector": "cpp",
+        "type_traits": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "iterator": "cpp",
+        "scoped_allocator": "cpp",
+        "regex": "cpp",
+        "algorithm": "cpp",
+        "functional": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
+}
