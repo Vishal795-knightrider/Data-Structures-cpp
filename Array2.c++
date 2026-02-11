@@ -1170,41 +1170,41 @@ using namespace std;
 // } 
 
 // when pos and negatives are not equal
-int main(){
-  int n;
-  cin >> n;
-  int arr[n];
-  for(int i=0;i<n;i++){
-    cin >> arr[i];
-  }
-  vector<int> pos;
-  vector<int> neg;
-  for(int i=0;i<n;i++){
-    if(arr[i]<0) neg.push_back(arr[i]);      //tc=o(n)+o(min(pos,neg))+o(leftovers)=o(2N)
-    else pos.push_back(arr[i]);
-  }
+// int main(){
+//   int n;
+//   cin >> n;
+//   int arr[n];
+//   for(int i=0;i<n;i++){
+//     cin >> arr[i];
+//   }
+//   vector<int> pos;
+//   vector<int> neg;
+//   for(int i=0;i<n;i++){
+//     if(arr[i]<0) neg.push_back(arr[i]);      //tc=o(n)+o(min(pos,neg))+o(leftovers)=o(2N)
+//     else pos.push_back(arr[i]);
+//   }
 
-  vector<int> result;
-  int len=min(neg.size(),pos.size());
-  for(int i=0;i<len;i++){
-    result.push_back(pos[i]);
-    result.push_back(neg[i]);
-  }
+//   vector<int> result;
+//   int len=min(neg.size(),pos.size());
+//   for(int i=0;i<len;i++){
+//     result.push_back(pos[i]);
+//     result.push_back(neg[i]);
+//   }
 
-  if(pos.size()>neg.size()){
-    for(int i=len;i<pos.size();i++){
-      result.push_back(pos[i]);
-    }
-  }
-  else {
-    for(int i=len;i<neg.size();i++){
-      result.push_back(neg[i]);
-    }
-  }                                        //tc=o(2n)
-  for(auto it:result){                    //sc=o(n)
-    cout << it << " ";
-  }
-}
+//   if(pos.size()>neg.size()){
+//     for(int i=len;i<pos.size();i++){
+//       result.push_back(pos[i]);
+//     }
+//   }
+//   else {
+//     for(int i=len;i<neg.size();i++){
+//       result.push_back(neg[i]);
+//     }
+//   }                                        //tc=o(2n)
+//   for(auto it:result){                    //sc=o(n)
+//     cout << it << " ";
+//   }
+// }
 
 
 // if i want to store in the same array
