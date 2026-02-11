@@ -1159,13 +1159,13 @@ using namespace std;
 //     else pos.push_back(arr[i]);
 //   }
 
-//   for(int i=0;i<n/2;i++){      //o(n)
+//   for(int i=0;i<n/2;i++){      //o(n/2)
 //     arr[2*i]=pos[i];
 //     arr[2*i+1]=neg[i];
 //   }
 
 //   for(int it:arr){
-//     cout << it << " ";            //tc=o(2N)
+//     cout << it << " ";            //tc=o(n+n/2)
 //   }                               //sc=o(N)={n/2+n/2}
 // } 
 
@@ -1177,10 +1177,76 @@ int main(){
   for(int i=0;i<n;i++){
     cin >> arr[i];
   }
-  int i=0;
-  while(i<n){
-    if(arr[i]<0){
+  vector<int> pos;
+  vector<int> neg;
+  for(int i=0;i<n;i++){
+    if(arr[i]<0) neg.push_back(arr[i]);      //tc=o(n)+o(min(pos,neg))+o(leftovers)=o(2N)
+    else pos.push_back(arr[i]);
+  }
 
+  vector<int> result;
+  int len=min(neg.size(),pos.size());
+  for(int i=0;i<len;i++){
+    result.push_back(pos[i]);
+    result.push_back(neg[i]);
+  }
+
+  if(pos.size()>neg.size()){
+    for(int i=len;i<pos.size();i++){
+      result.push_back(pos[i]);
     }
+  }
+  else {
+    for(int i=len;i<neg.size();i++){
+      result.push_back(neg[i]);
+    }
+  }                                        //tc=o(2n)
+  for(auto it:result){                    //sc=o(n)
+    cout << it << " ";
+  }
+}
+
+
+// if i want to store in the same array
+
+int main(){
+  int n;
+  cin >> n;
+  int arr[n];
+  for(int i=0;i<n;i++){
+    cin >> arr[i];
+  }
+  vector<int> pos;
+  vector<int> neg;
+  for(int i=0;i<n;i++){
+    if(arr[i]<0) neg.push_back(arr[i]);
+    else pos.push_back(arr[i]);
+  }
+
+  if(pos.size()>neg.size()){
+    for(int i=0;i<neg.size();i++){
+      arr[2*i]=pos[i];
+      arr[2*i+1]=neg[i];
+    }
+    int idx=(neg.size())*2;
+    for(int i=neg.size();i<pos.size();i++){
+      arr[idx]=pos[i];
+      idx++;
+    }
+  }
+  else{
+    for(int i=0;i<pos.size();i++){
+      arr[2*i]=pos[i];
+      arr[2*i+1]=neg[i];
+    }
+    int idx=(pos.size())*2;
+    for(int i=pos.size();i<neg.size();i++){
+      arr[idx]=neg[i];
+      idx++;
+    }
+  }
+
+  for(auto it:arr){
+    cout << it << " ";
   }
 }
