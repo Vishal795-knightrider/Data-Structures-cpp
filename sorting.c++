@@ -191,7 +191,37 @@ using namespace std;
 
  
 
+//SHELL 
+// #include <bits/stdc++.h>
+// using namespace std;
 
 
+// int main(){
+// 	int  n; cin >> n;
+// 	cin.ignore();
 
+// 	string line;
+// 	getline(cin,line);
 
+// 	stringstream ss(line);
+// 	vector<int> vec;
+// 	int x;
+// 	while(ss >> x){
+// 		vec.push_back(x);
+// 	}
+// 	if(vec.size()!= n) cout<<"-1";
+// 	else{
+// 	for(int g=n/2;g>=1;g=g/2){
+// 		for(int j=g;j<n;j++){
+// 			for(int i=j-g;i>=0;i= i-g){
+// 				if(vec[i+g]>vec[i]) break;
+// 				else swap(vec[i+g],vec[i]);
+// 			}
+// 		}
+// 	}
+// 	for(int i=0;i<vec.size();i++){
+// 		cout << vec[i];
+// 		if(i!=n-1) cout << " ";
+// 	}
+// }
+// }

@@ -1209,44 +1209,61 @@ using namespace std;
 
 // if i want to store in the same array
 
+// int main(){
+//   int n;
+//   cin >> n;
+//   int arr[n];
+//   for(int i=0;i<n;i++){
+//     cin >> arr[i];
+//   }
+//   vector<int> pos;
+//   vector<int> neg;
+//   for(int i=0;i<n;i++){
+//     if(arr[i]<0) neg.push_back(arr[i]);
+//     else pos.push_back(arr[i]);
+//   }
+
+//   if(pos.size()>neg.size()){
+//     for(int i=0;i<neg.size();i++){
+//       arr[2*i]=pos[i];
+//       arr[2*i+1]=neg[i];
+//     }
+//     int idx=(neg.size())*2;
+//     for(int i=neg.size();i<pos.size();i++){
+//       arr[idx]=pos[i];
+//       idx++;
+//     }
+//   }
+//   else{
+//     for(int i=0;i<pos.size();i++){
+//       arr[2*i]=pos[i];
+//       arr[2*i+1]=neg[i];
+//     }
+//     int idx=(pos.size())*2;
+//     for(int i=pos.size();i<neg.size();i++){
+//       arr[idx]=neg[i];
+//       idx++;
+//     }
+//   }
+
+//   for(auto it:arr){
+//     cout << it << " ";
+//   }
+// }
+
+
+//Next Permutation
+//Brute
 int main(){
   int n;
   cin >> n;
-  int arr[n];
+  vector<int> vec(n);
+  int x;
   for(int i=0;i<n;i++){
-    cin >> arr[i];
+    cin >> x;
+    vec.push_back(x);
   }
-  vector<int> pos;
-  vector<int> neg;
-  for(int i=0;i<n;i++){
-    if(arr[i]<0) neg.push_back(arr[i]);
-    else pos.push_back(arr[i]);
-  }
-
-  if(pos.size()>neg.size()){
-    for(int i=0;i<neg.size();i++){
-      arr[2*i]=pos[i];
-      arr[2*i+1]=neg[i];
-    }
-    int idx=(neg.size())*2;
-    for(int i=neg.size();i<pos.size();i++){
-      arr[idx]=pos[i];
-      idx++;
-    }
-  }
-  else{
-    for(int i=0;i<pos.size();i++){
-      arr[2*i]=pos[i];
-      arr[2*i+1]=neg[i];
-    }
-    int idx=(pos.size())*2;
-    for(int i=pos.size();i<neg.size();i++){
-      arr[idx]=neg[i];
-      idx++;
-    }
-  }
-
-  for(auto it:arr){
-    cout << it << " ";
-  }
+  vector<vector<int>> vt;
 }
+
+
