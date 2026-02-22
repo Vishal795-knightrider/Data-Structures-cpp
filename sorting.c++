@@ -228,37 +228,79 @@ using namespace std;
 
 
 
-//Counting Sort
-#include <bits/stdc++.h>
-using namespace std;
+// //Counting Sort
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main(){
+// 	int n;
+// 	cin >> n;
+// 	int arr[n];
+// 	for(int i=0;i<n;i++){
+// 		cin >> arr[i];
+// 	}
+// 	int max=*max_element(arr,arr+n);
+// 	int count[max+1]={0};
+// 	int output[n];
+// 	//frequency
+// 	for(int i=0;i<n;i++){
+// 		count[arr[i]]++;
+// 	}
+	
+// 	for(int i=1;i<=max;i++){
+// 		count[i]=count[i]+count[i-1];
+// 	}
+	
+// 	for(int i=n-1;i>=0;i--){
+// 		output[--count[arr[i]]]=arr[i];
+// 	}
+// 	//copy to origina array
+// 	for(int i=0;i<n;i++){
+// 		arr[i]=output[i];
+// 	}
+
+// 	for(int i=0;i<n;i++){
+// 		cout << arr[i];
+// 		if(i!=n-1) cout << " ";
+// 	}
+// }
+
+
+
+//Radix Sort
+
+	void countsort(int arr[],int n,int place){
+		int output[n];
+		int count[10]={0};
+		
+		for(int i=0;i<n;i++){
+			count[(arr[i]/place)%10]++;
+		}
+		
+		for(int i=1;i<10;i++){
+			count[i]=count[i]+count[i-1];
+		}
+		
+		for(int i=n-1;i>=0;i--){
+			output[--count[(arr[i]/place)%10]]=arr[i];
+		}
+		
+		for(int i=0;i<n;i++){
+			arr[i]=output[i];
+		}
+	}
 
 int main(){
-	int n;
-	cin >> n;
+	int n; cin >> n;
 	int arr[n];
 	for(int i=0;i<n;i++){
 		cin >> arr[i];
 	}
 	int max=*max_element(arr,arr+n);
-	int count[max+1]={0};
-	int output[n];
-	//frequency
-	for(int i=0;i<n;i++){
-		count[arr[i]]++;
+	for(int place=1;max/place>0;place *=10){
+		countsort(arr,n,place);
 	}
 	
-	for(int i=1;i<=max;i++){
-		count[i]=count[i]+count[i-1];
-	}
-	
-	for(int i=n-1;i>=0;i--){
-		output[--count[arr[i]]]=arr[i];
-	}
-	//copy to origina array
-	for(int i=0;i<n;i++){
-		arr[i]=output[i];
-	}
-
 	for(int i=0;i<n;i++){
 		cout << arr[i];
 		if(i!=n-1) cout << " ";
