@@ -269,40 +269,86 @@ using namespace std;
 
 //Radix Sort
 
-	void countsort(int arr[],int n,int place){
-		int output[n];
-		int count[10]={0};
+// 	void countsort(int arr[],int n,int place){
+// 		int output[n];
+// 		int count[10]={0};
 		
-		for(int i=0;i<n;i++){
-			count[(arr[i]/place)%10]++;
-		}
+// 		for(int i=0;i<n;i++){
+// 			count[(arr[i]/place)%10]++;
+// 		}
 		
-		for(int i=1;i<10;i++){
-			count[i]=count[i]+count[i-1];
-		}
+// 		for(int i=1;i<10;i++){
+// 			count[i]=count[i]+count[i-1];
+// 		}
 		
-		for(int i=n-1;i>=0;i--){
-			output[--count[(arr[i]/place)%10]]=arr[i];
-		}
+// 		for(int i=n-1;i>=0;i--){
+// 			output[--count[(arr[i]/place)%10]]=arr[i];
+// 		}
 		
-		for(int i=0;i<n;i++){
-			arr[i]=output[i];
-		}
-	}
+// 		for(int i=0;i<n;i++){
+// 			arr[i]=output[i];
+// 		}
+// 	}
 
-int main(){
-	int n; cin >> n;
-	int arr[n];
-	for(int i=0;i<n;i++){
-		cin >> arr[i];
-	}
-	int max=*max_element(arr,arr+n);
-	for(int place=1;max/place>0;place *=10){
-		countsort(arr,n,place);
-	}
+// int main(){
+// 	int n; cin >> n;
+// 	int arr[n];
+// 	for(int i=0;i<n;i++){
+// 		cin >> arr[i];
+// 	}
+// 	int max=*max_element(arr,arr+n);
+// 	for(int place=1;max/place>0;place *=10){
+// 		countsort(arr,n,place);
+// 	}
 	
-	for(int i=0;i<n;i++){
-		cout << arr[i];
-		if(i!=n-1) cout << " ";
-	}
+// 	for(int i=0;i<n;i++){
+// 		cout << arr[i];
+// 		if(i!=n-1) cout << " ";
+// 	}
+// }
+
+
+//Bucket Sort
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<double> arr(n);
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    // Create n buckets
+    vector<vector<double>> buckets(n);
+
+    // Put array elements into buckets
+    for (int i = 0; i < n; i++) {
+        int idx = n * arr[i];   // bucket index
+        if (idx >= n) idx = n - 1; // safety for value = 1
+        buckets[idx].push_back(arr[i]);
+    }
+
+    // Sort individual buckets
+    for (int i = 0; i < n; i++) {
+        sort(buckets[i].begin(), buckets[i].end());
+    }
+
+    // Concatenate all buckets
+    int k = 0;
+    for (int i = 0; i < n; i++) {
+        for (double x : buckets[i]) {
+            arr[k++] = x;
+        }
+    }
+
+    // Print sorted array
+	for (int i = 0; i < n; i++) {
+        cout << fixed << setprecision(2) << arr[i];
+        if (i != n - 1) cout << " ";
+    }
+
+    return 0;
 }
