@@ -1254,16 +1254,43 @@ using namespace std;
 
 //Next Permutation
 //Brute
+// int main(){
+//   int n;
+//   cin >> n;
+//   vector<int> vec(n);
+//   int x;
+//   for(int i=0;i<n;i++){
+//     cin >> x;
+//     vec.push_back(x);
+//   }
+//   vector<vector<int>> vt;
+// }
+
+
+//optimal
+
 int main(){
-  int n;
-  cin >> n;
-  vector<int> vec(n);
-  int x;
+  int n; cin >> n;
+  vector<int> a(n);
+  int idx=-1;
   for(int i=0;i<n;i++){
-    cin >> x;
-    vec.push_back(x);
+    cin >> a[i];
   }
-  vector<vector<int>> vt;
+  for(int i=n-2;i>=0;i--){
+    if(a[i]<a[i+1]){
+      idx=i; break;
+    }
+  }
+  if(idx==-1){
+    reverse(a.begin(),a.end());
+    cotu << a;
+  }
+  for(int i=n-1;i>idx;i--){
+    if(a[i]>a[idx]){
+      swap(arr[i],arr[idx]);
+      break;
+    }
+  }
+  reverse(a.begin()+idx+1,a.end());
+  cout << a;
 }
-
-
