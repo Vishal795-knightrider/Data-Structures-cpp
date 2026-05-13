@@ -39,3 +39,34 @@ int main() {
 
     return 0;
 }
+
+
+//memoization(top down)
+#include <iostream>
+#include <vector>
+using namespace std;
+
+vector<vector<int>> dp;
+
+int solve(int coins[], int n, int sum) {
+    if (sum == 0) return 1;
+    if (sum < 0) return 0;
+    if (n <= 0) return 0;
+
+    if (dp[n][sum] != -1)
+        return dp[n][sum];
+
+    return dp[n][sum] =
+        solve(coins, n, sum - coins[n - 1]) +
+        solve(coins, n - 1, sum);
+}
+
+int main() {
+    int coins[] = {1, 2, 3};
+    int sum = 4;
+    int n = sizeof(coins) / sizeof(coins[0]);
+
+    dp.resize(n + 1, vector<int>(sum + 1, -1));
+
+    cout << solve(coins, n, sum);
+}
