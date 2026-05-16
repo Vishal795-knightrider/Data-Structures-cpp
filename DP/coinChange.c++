@@ -36,7 +36,6 @@ int main() {
     }
 
     cout << dp[sum] << endl;
-
     return 0;
 }
 
