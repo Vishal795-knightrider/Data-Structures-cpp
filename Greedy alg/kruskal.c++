@@ -56,3 +56,40 @@ int main(){
 
     cout<<cost;
 }
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int p[100];
+
+int f(int x){
+    return p[x]==x?x:p[x]=f(p[x]);
+}
+
+int main(){
+    int n,e,u,v,w,c=0;
+    cin>>n>>e;
+
+    vector<vector<int>> a;
+
+    while(e--){
+        cin>>u>>v>>w;
+        a.push_back({w,u,v});
+    }
+
+    sort(a.begin(),a.end());
+
+    for(int i=0;i<n;i++) p[i]=i;
+
+    for(auto i:a){
+        if(f(i[1])!=f(i[2])){
+            p[f(i[1])]=f(i[2]);
+            cout<<i[1]<<" "<<i[2]<<" "<<i[0]<<endl;
+            c+=i[0];
+        }
+    }
+
+    cout<<c;
+}
