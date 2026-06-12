@@ -32,4 +32,4 @@ def rabin_karp(text, pattern):
     return -1
 
 # Example
-print(rabin_karp("ABCCDDAEFG", "CDD"))  # Output: 3
+print(rabin_karp("ABCCDDAEFG", "CDD")) 
