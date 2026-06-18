@@ -50,7 +50,7 @@ bool hamCycleUtil(vector<vector<int>> &adjMat,
     return false;
 }
 
-// Initialize path and invoke backtracking function
+// Initialize path and invoke backtracking fn
 vector<int> hamCycle(vector<vector<int>> &adjMat) {
     int n = adjMat.size();
     vector<int> path(n, -1);
