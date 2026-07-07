@@ -619,6 +619,24 @@ using namespace std;
 
 
 //2 sum problem
+
+//Brute
+
+// int main(){
+//   int n;
+//   cin >> n;
+//   int arr[n];
+//   int target;
+//   cin >> target;
+//   for(int i=0;i<n;i++){
+//     for(int j=0;j<n;j++){
+//       if(i==j) continue;
+//       if(arr[i]+arr[j]==target) return {i,j};
+//     }
+//   }
+// }
+
+
 //better
 // int main(){
 //   int n;
@@ -637,7 +655,7 @@ using namespace std;
 //       cout << mp[b] << " " <<  i;
 //       break;
 //     }
-//     mp[a]=i;
+ //     mp[a]=i;
 //   }
 // }
 
@@ -650,7 +668,7 @@ using namespace std;
 //   for(int i=0;i<n;i++){
 //     cin >> arr[i];
 //   }
-//   int target;
+//   int target; 
 //   cin >> target;
 //   int i=0;
 //   int j=n-1;
