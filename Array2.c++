@@ -614,7 +614,7 @@ using namespace std;
 
 //optimal
 
-
+ 
 
 
 
@@ -629,7 +629,7 @@ using namespace std;
 //   int target;
 //   cin >> target;
 //   for(int i=0;i<n;i++){
-//     for(int j=0;j<n;j++){
+//     for(int j=1;j<n;j++){
 //       if(i==j) continue;
 //       if(arr[i]+arr[j]==target) return {i,j};
 //     }
