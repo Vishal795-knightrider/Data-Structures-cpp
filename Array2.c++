@@ -732,21 +732,21 @@ int main() {
     int n;
     cin >> n;
 
-    vector<int> A(n);
+    vector<int> a(n);
     for (int i = 0; i < n; i++) {
-        cin >> A[i];
+        cin >> a[i];
     }
 
     int ind = -1;
     for (int i = n - 2; i >= 0; i--) {
-        if (A[i] < A[i + 1]) {
+        if (a[i] < a[i + 1]) {
             ind = i;
             break;
         }
     }
 
     if (ind == -1) {
-        reverse(A.begin(), A.end());
+        reverse(a.begin(), a .end());
     } else {
 
         for (int i = n - 1; i > ind; i--) {
