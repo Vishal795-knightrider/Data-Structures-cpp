@@ -470,7 +470,7 @@ int main(){
         cin >> arr[i];
     }
     int hr;
-    cout << "Enter the hours:" << endl;
+    cout << "Enter hours:" << endl;
     cin >> hr;
     int low=1; int high=maxx(arr,n);
     int ans=INT_MIN;
