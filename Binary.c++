@@ -484,26 +484,21 @@ int main(){
             low=mid+1;
         }
     }
-    cout << ans << " is the min int";
+    cout << ans << "is the min int";
 }
-
-
-#include <iostream>
-#include <vector>
-using namespace std;
 
 int main() {
     int n;
     cin >> n;
     vector<int> arr(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i =0; i< n;i++) {
         cin >> arr[i];
     }
-    int low = 0, high = n - 1;
+    int low= 0, high=n - 1;
 
     while (low < high) {
-        int mid = low + (high - low) / 2;
+        int mid = low + (high - low)/ 2;
         if (arr[mid] > arr[high]) {
             low = mid + 1;
         } else {
