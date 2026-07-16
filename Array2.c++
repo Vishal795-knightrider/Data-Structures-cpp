@@ -1279,3 +1279,78 @@ int main()
 //   reverse(a.begin()+idx+1,a.end());
 //   cout << a;
 // }
+
+
+
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void swapIfGreater(vector<int> &a, vector<int> &b, int ind1, int ind2) {
+    if (a[ind1] > b[ind2]) {
+        swap(a[ind1], b[ind2]);
+    }
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    vector<int> arr1(n), arr2(m);
+
+    for (int i = 0; i < n; i++) {
+        cin >> arr1[i];
+    }
+
+    for (int i = 0; i < m; i++) {
+        cin >> arr2[i];
+    }
+
+    int len = n + m;
+    int gap = (len / 2) + (len % 2);
+
+    while (gap > 0) {
+        int left = 0;
+        int right = left + gap;
+
+        while (right < len) {
+
+            // Both pointers in arr1
+            if (left < n && right < n) {
+                if (arr1[left] > arr1[right])
+                    swap(arr1[left], arr1[right]);
+            }
+
+            // left in arr1, right in arr2
+            else if (left < n && right >= n) {
+                swapIfGreater(arr1, arr2, left, right - n);
+            }
+
+            // Both pointers in arr2
+            else {
+                if (arr2[left - n] > arr2[right - n])
+                    swap(arr2[left - n], arr2[right - n]);
+            }
+
+            left++;
+            right++;
+        }
+
+        if (gap == 1)
+            break;
+
+        gap = (gap / 2) + (gap % 2);
+    }
+
+    cout << "Array 1: ";
+    for (int x : arr1)
+        cout << x << " ";
+
+    cout << "\nArray 2: ";
+    for (int x : arr2)
+        cout << x << " ";
+
+    return 0;
+}
