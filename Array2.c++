@@ -1316,28 +1316,20 @@ int main() {
         int right = left + gap;
 
         while (right < len) {
-
-            // Both pointers in arr1
             if (left < n && right < n) {
                 if (arr1[left] > arr1[right])
                     swap(arr1[left], arr1[right]);
             }
-
-            // left in arr1, right in arr2
             else if (left < n && right >= n) {
                 swapIfGreater(arr1, arr2, left, right - n);
             }
-
-            // Both pointers in arr2
             else {
                 if (arr2[left - n] > arr2[right - n])
                     swap(arr2[left - n], arr2[right - n]);
             }
-
             left++;
             right++;
         }
-
         if (gap == 1)
             break;
 
