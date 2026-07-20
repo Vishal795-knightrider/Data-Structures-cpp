@@ -1404,3 +1404,25 @@ int main() {
 
     return 0;
 }
+
+//multiset
+
+int main() {
+    int n;
+    cin >> n;
+
+    multiset<int> ms;
+    for (int i=0;i<n;i++) {
+        int x;
+        cin>> x;
+        ms.insert(x);
+    }
+    int key;
+    cin >> key;
+    ms.erase(key);
+
+    for (auto x : ms) {
+        cout << x << " ";
+    }
+    return 0;
+}
