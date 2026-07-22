@@ -1465,3 +1465,30 @@ int main() {
 
     return 0;
 }
+
+
+
+// non repeater character 
+
+#include <iostream>
+#include <unordered_map>
+#include <string>
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    unordered_map<char, int> mp;
+
+    for (char ch: s) {
+        mp[ch]++;
+    }
+
+    for (char ch:s) {
+        if (mp[ch]== 1) {
+            cout << ch;
+            return 0;
+        }
+    }
+    cout << "No non-repeating character";
+}
