@@ -1492,3 +1492,38 @@ int main() {
     }
     cout << "No non-repeating character";
 }
+
+
+
+// Count Distinct Elements in Every Window of Size K
+
+int main() {
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    int k;
+    cin >> k;
+
+    unordered_map<int, int> mp;
+
+    for (int i= 0; i< k; i++) {
+        mp[arr[i]]++;
+    }
+    cout << mp.size() << " ";
+
+    for (int i= k; i< n; i++) {
+        mp[arr[i - k]]--;
+        if (mp[arr[i - k]]== 0) {
+            mp.erase(arr[i- k]);
+        }
+        mp[arr[i]]++;
+        cout << mp.size() << " ";
+    }
+
+    return 0;
+}
