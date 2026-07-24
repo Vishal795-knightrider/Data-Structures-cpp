@@ -1527,3 +1527,33 @@ int main() {
 
     return 0;
 }
+
+// Kth Smallest Distinct Element using set.
+
+int main() {
+    int n;
+    cin >> n;
+    set<int> st;
+
+    for (int i=0;i< n;i++) {
+        int x;
+        cin >>x;
+        st.insert(x);
+    }
+    int k;
+    cin >> k;
+
+    if (k> st.size()) {
+        cout << "Not Possible";
+        return 0;
+    }
+    auto it = st.begin();
+
+    for (int i= 1;i< k;i++) {
+        it++;
+    }
+
+    cout << *it;
+
+    return 0;
+}
