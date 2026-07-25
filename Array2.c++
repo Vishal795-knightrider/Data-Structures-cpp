@@ -1542,18 +1542,43 @@ int main() {
     }
     int k;
     cin >> k;
-
     if (k> st.size()) {
         cout << "Not Possible";
         return 0;
     }
     auto it = st.begin();
-
     for (int i= 1;i< k;i++) {
         it++;
     }
 
     cout << *it;
+
+    return 0;
+}
+
+// Remove One Occurrence of an Element using multiset.
+
+int main() {
+    int n;
+    cin >> n;
+
+    multiset<int> ms;
+
+    for (int i= 0;i< n;i++){
+        int x;
+        cin >>x;
+        ms.insert(x);
+    }
+    int key;
+    cin>> key;
+
+    auto it = ms.find(key);
+    if (it!= ms.end()) {
+        ms.erase(it);
+    }
+    for (auto x : ms){
+        cout << x << " ";
+    }
 
     return 0;
 }
