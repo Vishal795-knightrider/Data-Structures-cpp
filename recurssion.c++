@@ -128,19 +128,15 @@ using namespace std;
 
 // factorial of n
 
-// int f(int n){
+// int fact(int n){
 //     if(n==1) return 1;
-//     else {
-//         return n*f(n-1);
-//     }
+//     else return n*fact(n-1);
 // }
 
 // int main(){
-//     int n;
-//     cin >> n;
-//     cout << f(n);
+//     int n; cin >> n;
+//     cout << fact(n);
 // }
-
 
 // Reverse an array using recursion  
 // using two pointer
@@ -227,3 +223,17 @@ using namespace std;
 //     cout << fibo(n);
 // }
 
+reversal  of string using recursion
+
+void reverse(string &str,int i){
+    if(i<0) return;
+    cout << str[i];
+    reverse(str,i-1);
+}
+
+int main(){
+    string str;
+    cin >> str;
+
+    reverse(str,str.length()-1)
+}
