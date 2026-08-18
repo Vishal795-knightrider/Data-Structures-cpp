@@ -223,17 +223,20 @@ using namespace std;
 //     cout << fibo(n);
 // }
 
-reversal  of string using recursion
+// reversal  of string using recursion
 
-void reverse(string &str,int i){
-    if(i<0) return;
-    cout << str[i];
-    reverse(str,i-1);
-}
+// void reverse(string &str,int i){
+//     if(i<0) return;
+//     cout << str[i];
+//     reverse(str,i-1);
+// }
 
-int main(){
-    string str;
-    cin >> str;
+// int main(){
+//     string str;
+//     cin >> str;
 
-    reverse(str,str.length()-1)
-}
+//     reverse(str,str.length()-1)
+// }
+
+
+
