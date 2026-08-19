@@ -77,3 +77,67 @@ using namespace std;
 //     cout << (n|(1<<i));
 // }
 
+//CLEAR THE Ith BIT
+
+// int main(){
+//     int n; cin >> n;
+//     int i; cin >> i;
+//     cout <<( n&( ~(1<<i)));
+// }
+
+// TOGGLE THE Ith BIT  (0 to 1 n 1 to 0)
+// int main(){
+//     int n; cin >> n;
+//     int i; cin >> i;
+//     cout << (n^(1<<i));
+// }
+
+
+// REMOVE LAST SET BIT (RIGHTMOST)
+
+// int main(){
+//     int n; cin >> n;
+//     cout << (n&(n-1));
+// }
+
+// CHECK IF NUMBER IS A POWER OF 2
+// int main(){
+//     int n; cin >> n;
+//     if ((n & n-1)==0) cout << "true";
+//     else cout << "false";
+// }
+
+// COUNT THE NO. OF SET BITS
+
+// 1.
+// int main(){
+//     int n; cin >> n;
+//     int cnt=0;
+//     while(n!=0){
+//         if(n%2==1) cnt++;
+//         n=n/2;
+//     }
+//     cout << cnt;
+// }
+
+// 2.
+// int main(){
+// int n; cin >> n;
+// int cnt = 0;
+// while (n != 0) {
+//     if (n & 1) cnt++; // Checks if the last bit is 1 (last bit is 1 in case of odd thats why rem shoul be 1 and then cnt++)
+//     n = n >> 1;       // Right-shifts bits by 1 (that is n/2)
+// }
+// cout << cnt;
+// }
+
+// 3.
+// int main(){
+// int n; cin >> n;
+// int cnt = 0;
+// while (n != 0) {
+//     n = n & (n - 1);   // Clears the lowest set bit (one by one clearing the set bit )  best approch to find this
+//     cnt++;
+// }
+// cout << cnt;
+// }
