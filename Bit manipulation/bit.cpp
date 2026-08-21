@@ -145,13 +145,41 @@ using namespace std;
 
 // MINIMUM BIT FLIPS TO CONVERT A NUMBER
 
+// int main(){
+//     int n,m;
+//     cin >> n >> m;
+//     int ans=n^m;
+//     int cnt=0;
+//     for(int i=0;i<=31;i++){
+//         if(ans&(1<<i)) cnt++;
+//     }
+//     cout << cnt;
+// }
+
+
+//POWERSET (print all subsets)
+
 int main(){
-    int n,m;
-    cin >> n >> m;
-    int ans=n^m;
-    int cnt=0;
-    for(int i=0;i<=31;i++){
-        if(ans&(1<<i)) cnt++;
+    vector<int> nums={1,2,3};
+    int n=nums.size();
+    vector<vector<int>> ans;
+    int totsub=1<<n;                     //no of subsets(2^n)
+    for(int num=0;num<totsub;num++){
+        vector<int> ok;
+        for(int i=0;i<n;i++){               //i=0,1,2     which connected to nums[0] nums[1] nums[2]
+            if(num&(1<<i)) ok.push_back(nums[i]);
+        }
+        ans.push_back(ok);
     }
-    cout << cnt;
+    
+
+    // for (auto list : ans) {
+    //     cout << "{ ";
+    //     for (int x : list) {
+    //         cout << x << " ";
+    //     }
+
+    //     cout << "}" << endl;
+    // }
+
 }
