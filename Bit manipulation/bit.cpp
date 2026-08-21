@@ -141,3 +141,17 @@ using namespace std;
 // }
 // cout << cnt;
 // }
+
+
+// MINIMUM BIT FLIPS TO CONVERT A NUMBER
+
+int main(){
+    int n,m;
+    cin >> n >> m;
+    int ans=n^m;
+    int cnt=0;
+    for(int i=0;i<=31;i++){
+        if(ans&(1<<i)) cnt++;
+    }
+    cout << cnt;
+}
