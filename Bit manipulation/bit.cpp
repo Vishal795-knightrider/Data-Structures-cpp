@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// convert deci to binary
+//1. convert deci to binary
 
 // string deci2bin(int n){
 //     string res="";
@@ -20,7 +20,7 @@ using namespace std;
 // }
 
 
-//convert bin to decimal
+//2.  convert bin to decimal
 
 // int dec2bin(string str){
 //     int num=0;
@@ -39,7 +39,7 @@ using namespace std;
 //     cout << dec2bin(str);
 // }
 
-// SWAP 2 NUMBERS
+//3. SWAP 2 NUMBERS
 
 // int main(){
 //     int a,b; cin >> a >> b;
@@ -50,7 +50,7 @@ using namespace std;
 // }
 
 
-//IF THE Ith BIT IS SET OR NOT
+//4. IF THE Ith BIT IS SET OR NOT
 
 // --> using left shift operator
 // int main(){
@@ -69,7 +69,7 @@ using namespace std;
 //     else cout << "false";
 // }
 
-//SET THE Ith BIT
+//5.  SET THE Ith BIT
 
 // int main(){
 //     int n; cin >> n;
@@ -77,7 +77,7 @@ using namespace std;
 //     cout << (n|(1<<i));
 // }
 
-//CLEAR THE Ith BIT
+//6.   CLEAR THE Ith BIT
 
 // int main(){
 //     int n; cin >> n;
@@ -85,7 +85,7 @@ using namespace std;
 //     cout <<( n&( ~(1<<i)));
 // }
 
-// TOGGLE THE Ith BIT  (0 to 1 n 1 to 0)
+//7.  TOGGLE THE Ith BIT  (0 to 1 n 1 to 0)
 // int main(){
 //     int n; cin >> n;
 //     int i; cin >> i;
@@ -93,21 +93,21 @@ using namespace std;
 // }
 
 
-// REMOVE LAST SET BIT (RIGHTMOST)
+//8.   REMOVE LAST SET BIT (RIGHTMOST)
 
 // int main(){
 //     int n; cin >> n;
 //     cout << (n&(n-1));
 // }
 
-// CHECK IF NUMBER IS A POWER OF 2
+//9.    CHECK IF NUMBER IS A POWER OF 2
 // int main(){
 //     int n; cin >> n;
 //     if ((n & n-1)==0) cout << "true";
 //     else cout << "false";
 // }
 
-// COUNT THE NO. OF SET BITS
+//10.   COUNT THE NO. OF SET BITS
 
 // 1.
 // int main(){
@@ -143,7 +143,7 @@ using namespace std;
 // }
 
 
-// MINIMUM BIT FLIPS TO CONVERT A NUMBER
+//11.   MINIMUM BIT FLIPS TO CONVERT A NUMBER
 
 // int main(){
 //     int n,m;
@@ -157,20 +157,20 @@ using namespace std;
 // }
 
 
-//POWERSET (print all subsets)
+//12.   POWERSET (print all subsets)
 
-int main(){
-    vector<int> nums={1,2,3};
-    int n=nums.size();
-    vector<vector<int>> ans;
-    int totsub=1<<n;                     //no of subsets(2^n)
-    for(int num=0;num<totsub;num++){
-        vector<int> ok;
-        for(int i=0;i<n;i++){               //i=0,1,2     which connected to nums[0] nums[1] nums[2]
-            if(num&(1<<i)) ok.push_back(nums[i]);
-        }
-        ans.push_back(ok);
-    }
+// int main(){
+//     vector<int> nums={1,2,3};
+//     int n=nums.size();
+//     vector<vector<int>> ans;
+//     int totsub=1<<n;                     //no of subsets(2^n)
+//     for(int num=0;num<totsub;num++){     //num goes 0 1 2 3 4 5 6 7  (Each num represents one subset.)
+//         vector<int> ok;
+//         for(int i=0;i<n;i++){               //i=0,1,2     which connected to nums[0] nums[1] nums[2]
+//             if(num&(1<<i)) ok.push_back(nums[i]);
+//         }
+//         ans.push_back(ok);
+//     }
     
 
     // for (auto list : ans) {
@@ -182,4 +182,43 @@ int main(){
     //     cout << "}" << endl;
     // }
 
-}
+// }
+// The most important thing to remember
+// Think of every num as a take/not-take mask:
+
+// 101
+// │││
+// ││└── nums[0] → TAKE
+// │└─── nums[1] → DON'T TAKE
+// └──── nums[2] → TAKE
+
+// So bit = 1 → take, bit = 0 → don't take.
+// This is basically the take/not-take approach represented using bits.
+// ----------------------------------||----------------------------------
+// For num = 5:
+// num       = 101
+// 1 << 0    = 001   → 101 & 001 = 001 → take nums[0] = 1
+
+// 1 << 1    = 010   → 101 & 010 = 000 → don't take nums[1]
+
+// 1 << 2    = 100   → 101 & 100 = 100 → take nums[2] = 3
+
+// Therefore:
+// num = 5 → {1, 3}
+
+//13. SINGLE NUMBER
+
+// int main(){
+//     int n; cin >> n;
+//     int arr[n];
+//     for(int i=0;i<n;i++){
+//         cin >> arr[i];
+//     }
+//     int xorr=0;
+//     for(int i=0;i<n;i++){
+//         xorr=xorr^arr[i];
+//     }
+//     cout << xorr;
+// }
+
+
