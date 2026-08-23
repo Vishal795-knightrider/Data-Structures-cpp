@@ -206,7 +206,7 @@ using namespace std;
 // Therefore:
 // num = 5 → {1, 3}
 
-//13. SINGLE NUMBER
+//13. SINGLE NUMBER                (numbers appearing twice except one )
 
 // int main(){
 //     int n; cin >> n;
@@ -221,4 +221,25 @@ using namespace std;
 //     cout << xorr;
 // }
 
+
+
+//14. SINGLE NUMBER 2   (numbers appearing thrice except one )
+
+// int main(){
+//     int n; cin >> n;
+//     int arr[n];
+//     for(int i=0;i<n;i++){
+//         cin >> arr[i];
+//     }
+
+//     int ans=0;                      //to store that sinle appearing no.
+//     for(int bitidx=0;bitidx<32;bitidx++){
+//         int cnt=0;
+//         for(int i=0;i<n;i++){             
+//             if(arr[i]&(1<<bitidx)) cnt++;        //check if bit is 1
+//         }
+//         if(cnt%3==1) ans=(ans| (1<<bitidx));         //set the bit in ans
+//     }
+//     cout << ans;
+// }
 
