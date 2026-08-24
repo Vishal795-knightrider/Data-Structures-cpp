@@ -243,3 +243,39 @@ using namespace std;
 //     cout << ans;
 // }
 
+
+// 2nd method
+
+// int helper(int arr[],int n){
+//     sort(arr,arr+n);
+//     for(int i=1;i<n;i+=3){
+//         if(arr[i]!=arr[i-1]) return arr[i-1];
+//     }
+//     return arr[n-1];           //test case in which the element appearing one is at last position
+// }
+// int main(){
+//     int n; cin >> n;
+//     int arr[n];
+//     for(int i=0;i<n;i++){
+//         cin >> arr[i];
+//     }
+//     cout << helper(arr,n);
+// }
+
+
+//3rd method (using buckets)
+
+// int main(){
+//     int n; cin >> n;
+//     int arr[n];
+//     for(int i=0;i<n;i++){
+//         cin >> arr[i];
+//     }
+//     int ones=0;
+//     int twos=0;
+//     for(int i = 0;i<n;i++){
+//         ones=(ones^arr[i])&(~twos);       //move x to ones, remove bits already in twos
+//         twos=(twos^arr[i])&(~ones);       //move x to twos, remove bits already in ones
+//     }
+//     cout <<  ones;       //unique no.
+// }
