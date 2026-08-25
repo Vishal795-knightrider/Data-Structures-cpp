@@ -279,3 +279,25 @@ using namespace std;
 //     }
 //     cout <<  ones;       //unique no.
 // }
+
+
+//Single number 3
+
+// int main(){
+//     int n; cin >> n;
+//     int arr[n];
+//     for(int i=0;i<n;i++){
+//         cin >> arr[i];
+//     }
+//     int xorr=0;
+//     for(int i=0;i<n;i++){
+//         xorr=xorr^arr[i];
+//     }
+//     int rightmost=(xorr & (xorr-1)) ^ xorr;
+//     int b1=0; int b2=0;
+//     for(int i=0;i<n;i++){
+//         if((rightmost & arr[i])!=0) b1=b1^arr[i];
+//         else b2=b2^arr[i];
+//     }
+//     cout << "{" << b1 << " " << b2 << "}";
+// }
