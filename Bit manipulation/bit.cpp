@@ -281,7 +281,7 @@ using namespace std;
 // }
 
 
-//Single number 3
+15.//Single number 3
 
 // int main(){
 //     int n; cin >> n;
@@ -301,3 +301,40 @@ using namespace std;
 //     }
 //     cout << "{" << b1 << " " << b2 << "}";
 // }
+
+
+// 201
+// 260
+// 371
+// 137
+
+
+//16.XOR of numbers in a given range n=4 we have to find 1^2^3^4
+
+// int main(){
+//     int n; cin >> n;
+//     if(n%4==1) cout << 1;
+//     else if(n%4==2) cout << n+1;
+//     else if(n%4==3) cout << 0;
+//     else cout << n;
+// }
+
+//17.  if it in a give range (L-R)  liek (4-7) we have to find 4^5^6^7
+
+int solve(int n){
+    if(n%4==1) return 1;
+    else if(n%4==2) return n+1;
+    else if(n%4==3) return 0;
+    else return n;
+}
+
+int main(){
+    int l,r;
+    cin >> l >> r;
+    int a=solve(l-1);
+    int b=solve(r);
+    int ans=a^b;
+    cout << ans;
+}
+
+
