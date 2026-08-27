@@ -281,7 +281,7 @@ using namespace std;
 // }
 
 
-15.//Single number 3
+//15. Single number 3
 
 // int main(){
 //     int n; cin >> n;
@@ -321,20 +321,63 @@ using namespace std;
 
 //17.  if it in a give range (L-R)  liek (4-7) we have to find 4^5^6^7
 
-int solve(int n){
-    if(n%4==1) return 1;
-    else if(n%4==2) return n+1;
-    else if(n%4==3) return 0;
-    else return n;
-}
+// int solve(int n){
+//     if(n%4==1) return 1;
+//     else if(n%4==2) return n+1;
+//     else if(n%4==3) return 0;
+//     else return n;
+// }
 
+// int main(){
+//     int l,r;
+//     cin >> l >> r;
+//     int a=solve(l-1);
+//     int b=solve(r);
+//     int ans=a^b;
+//     cout << ans;
+// }
+
+
+// 18. Divide two integers
 int main(){
-    int l,r;
-    cin >> l >> r;
-    int a=solve(l-1);
-    int b=solve(r);
-    int ans=a^b;
-    cout << ans;
+    int dividend, divisor;
+    cin >> dividend >> divisor;
+
+    if(dividend == divisor){
+        cout << 1;
+        return 0;
+    }
+    bool sign = true;
+    if(dividend < 0 && divisor >= 0) sign = false;
+    if(dividend >= 0 && divisor < 0) sign = false;
+
+    long long numerator = abs((long long)dividend);
+    long long denominator = abs((long long)divisor);
+
+    long long ans = 0;
+    while(numerator >= denominator){
+        int cnt = 0;
+        while(numerator >= (denominator << (cnt + 1))){
+            cnt++;
+        }
+        ans += (1 << cnt);
+        numerator = numerator - (denominator << cnt);
+    }
+
+    if(ans >= (1 << 31) && sign == true){
+        cout << INT_MAX;
+        return 0;
+    }
+    if(ans >= (1 << 31) && sign == false){
+        cout << INT_MIN;
+        return 0;
+    }
+
+    if(sign)
+        cout << ans;
+    else
+        cout << (-1 * ans);
+    return 0;
 }
 
 
