@@ -339,45 +339,64 @@ using namespace std;
 
 
 // 18. Divide two integers
-int main(){
-    int dividend, divisor;
-    cin >> dividend >> divisor;
+// int main(){
+//     int dividend, divisor;
+//     cin >> dividend >> divisor;
 
-    if(dividend == divisor){
-        cout << 1;
-        return 0;
-    }
-    bool sign = true;
-    if(dividend < 0 && divisor >= 0) sign = false;
-    if(dividend >= 0 && divisor < 0) sign = false;
+//     if(dividend == divisor){
+//         cout << 1;
+//         return 0;
+//     }
+//     bool sign = true;
+//     if(dividend < 0 && divisor >= 0) sign = false;
+//     if(dividend >= 0 && divisor < 0) sign = false;
 
-    long long numerator = abs((long long)dividend);
-    long long denominator = abs((long long)divisor);
+//     long long numerator = abs((long long)dividend);
+//     long long denominator = abs((long long)divisor);
 
-    long long ans = 0;
-    while(numerator >= denominator){
-        int cnt = 0;
-        while(numerator >= (denominator << (cnt + 1))){
-            cnt++;
-        }
-        ans += (1 << cnt);
-        numerator = numerator - (denominator << cnt);
-    }
+//     long long ans = 0;
+//     while(numerator >= denominator){
+//         int cnt = 0;
+//         while(numerator >= (denominator << (cnt + 1))){
+//             cnt++;
+//         }
+//         ans += (1 << cnt);
+//         numerator = numerator - (denominator << cnt);
+//     }
 
-    if(ans >= (1 << 31) && sign == true){
-        cout << INT_MAX;
-        return 0;
-    }
-    if(ans >= (1 << 31) && sign == false){
-        cout << INT_MIN;
-        return 0;
-    }
+//     if(ans >= (1 << 31) && sign == true){
+//         cout << INT_MAX;
+//         return 0;
+//     }
+//     if(ans >= (1 << 31) && sign == false){
+//         cout << INT_MIN;
+//         return 0;
+//     }
 
-    if(sign)
-        cout << ans;
-    else
-        cout << (-1 * ans);
-    return 0;
-}
+//     if(sign)
+//         cout << ans;
+//     else
+//         cout << (-1 * ans);
+//     return 0;
+// }
+
+// Overall thinking
+// 43 / 5
+
+// 43
+// ↓
+// Find biggest 5 × 2^cnt that fits
+// ↓
+// 5 × 8 = 40
+// ↓
+// answer += 8
+// ↓
+// 43 - 40 = 3
+// ↓
+// 3 < 5
+// ↓
+// STOP
+// ↓
+// answer = 8
 
 
