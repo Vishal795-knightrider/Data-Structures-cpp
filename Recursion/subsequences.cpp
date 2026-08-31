@@ -9,9 +9,9 @@ void fn(int idx,int arr[],vector<int> &v,int n){
   }
 
   v.push_back(arr[idx]);
-  fn(idx+1,arr,v,n);
+  fn(idx+1,arr,v,n);     //take 
   v.pop_back();
-  fn(idx+1,arr,v,n);
+  fn(idx+1,arr,v,n);      //not take
 }
 
 int main(){
