@@ -6,7 +6,7 @@ void fn(int idx,int arr[],int tar,vector<vector<int>>& ans,vector<int>& v,int n)
     if(tar==0) ans.push_back(v);
     return;
   }
-  
+
   if(arr[idx]<=tar){
     v.push_back(arr[idx]);
     fn(idx,arr,tar-arr[idx],ans,v,n);
@@ -17,6 +17,7 @@ void fn(int idx,int arr[],int tar,vector<vector<int>>& ans,vector<int>& v,int n)
 
 int main(){
   int arr[]={2,3,4,5,6,7};
+  cout << "enter target";
   int target; cin >> target;
   int n=sizeof(arr)/sizeof(arr[0]);
   vector<vector<int>> ans;
