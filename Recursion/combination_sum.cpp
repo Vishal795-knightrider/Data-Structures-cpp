@@ -1,6 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+
+// Input array mein saare elements distinct (unique) hain:
+// Agar aap problem description padhenge, toh wahan clearly likha hai: "Given an array of distinct integers candidates..."
+// Iska matlab array mein koi bhi number repeat nahi ho raha hai (jaise [2, 3, 6, 7]). Isliye same element alag-alag index se pick hone ka chance hi nahi hai.
+
+// 2. Recursion hamesha ek hi direction (Left to Right) mein move karta hai:
+// Aapke code mein dhyan dijiye:
+
+// Jab aap pick karte hain: fn(idx, ...) - Aap same element dobara le sakte hain.
+
+// Jab aap skip (not-pick) karte hain: fn(idx + 1, ...) - Aap aage badh jaate hain.
+
+// Ek baar jab aapne idx ko chhod diya aur idx + 1 par chale gaye, toh aap code mein kabhi wapas pichle element par nahi jaate.
+
+// Isko ek example se samajhte hain:
+// Maan lijiye candidates = [2, 3, 6, 7] aur target = 7 hai.
+
+// Ek combination banega: [2, 2, 3] (Pehle do baar 2 liya, phir aage badhkar ek baar 3 liya).
+
+// Ab kya [3, 2, 2] ya [2, 3, 2] ban sakta hai? Nahi.
+
+// Kyun? Kyunki ek baar jab aap 2 ko chhod kar 3 par aa gaye (skip branch ke through), toh aapke aage ke options sirf [3, 6, 7] bache hain. Wapas peeche jaakar 2 ko pick karne ka koi code hi nahi hai.
+
+
+// ye jo uper likha hai isme yeh hai ki isme duplicate combimation kyu nhi bnte hai ,,, kuki combination sum 2 me bnte hai
+
+
 void fn(int idx,int arr[],int tar,vector<vector<int>>& ans,vector<int>& v,int n){
   if(idx==n){
     if(tar==0) ans.push_back(v);
