@@ -108,7 +108,7 @@ using namespace std;
 // }
 
 //10.   COUNT THE NO. OF SET BITS
-
+ //below one not for negative integers
 // 1.
 // int main(){
 //     int n; cin >> n;
