@@ -12,11 +12,11 @@ void fn(int idx,int sum,int arr[],vector<int> &subsetSum,int n){
 
 int main(){
   int arr[]={1,2,3};
-  int n=sizeof(arr)/sizeof(arr[1]);
+  int n=arr.size();
   vector<int> subsetSum;
   fn(0,0,arr,subsetSum,n);
   sort(subsetSum.begin(),subsetSum.end());
   for(auto it:subsetSum){
     cout << it <<  " ";
   }
-}
+}    
