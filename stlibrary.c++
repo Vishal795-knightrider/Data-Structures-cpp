@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// stl is divided into four parts 
+// stl is divided into four partss
 // algorithms
 // containers
 // Functions
