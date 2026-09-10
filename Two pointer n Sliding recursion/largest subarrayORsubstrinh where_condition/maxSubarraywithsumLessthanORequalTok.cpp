@@ -58,3 +58,60 @@ using namespace std;
 //   }
 //   cout << "the maximum subarray is " << maxlen;
 // }
+
+//2. Better solutin ( 2pointer  n sliding window)   sum <=k
+
+// int main(){
+//   nt arr[]={1,2,3,4,5,6};
+//   int n=sizeof(arr)/sizeof(arr[0]);
+//   cout << "Enter k: ";
+//   int k; cin >> k;
+
+//   int r=0,l=0; int sum=0; int mxlen=0;
+//   while(r<n){       //tc=o(n)
+//     sum+=arr[r];
+//     while(sum>k){  //agar element add krte krte SUM bada ho gya hao to shrink karo by removing ele from left
+//       sum-=arr[l];
+//       l++;
+//     }
+//     if(sum<=k){
+//       mxlen=max(mxlen,r-l+1);  // kisi bhi time when sum <=k hoga us time subarray ki len =(r-l+1)   (agar question me vo appse subarray hi mng raha hai to store that l and r)
+//     }
+//     r++;
+//   }
+//   cout << "the maxmum subarray is: " << mxlen;
+// }
+
+// if we have to print the subarray (in this we have to store best l and r )
+
+
+// int main(){
+//   int arr[]={1,2,3,4,5,6};
+//   int n=sizeof(arr)/sizeof(arr[0]);
+//   cout << "Enter k: ";
+//   int k; cin >> k;
+
+//   int l=0,r=0,sum=0,mxlen=0;
+//   int bestl,bestr=0;
+
+//   while(r<n){
+//     sum+=arr[r];
+//     while(sum>k){
+//       sum-=arr[l];
+//       l++;
+//     }
+//     if(sum<=k){
+//       if(r-l+1>mxlen){
+//         mxlen=r-l+1;
+//         bestl=l;
+//         bestr=r;
+//       }
+//     }
+//     r++;
+//   }
+
+//   cout << "Subarray is: ";
+//   for(int i=bestl;i<=bestr;i++){
+//     cout << arr[i] << " ";
+//   }
+// }
