@@ -60,6 +60,7 @@ using namespace std;
 // }
 
 //2. Better solutin ( 2pointer  n sliding window)   sum <=k
+// (it will only work we have +ve integers)
 
 // int main(){
 //   nt arr[]={1,2,3,4,5,6};
