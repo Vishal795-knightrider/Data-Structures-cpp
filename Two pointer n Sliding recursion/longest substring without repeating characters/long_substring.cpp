@@ -21,3 +21,19 @@ int main(){
   }                                 
   cout << "the maximum length is: " << maxlen;
 }
+
+
+//optimal 
+
+int main(){
+  string str="cabx^ssydk,s";
+  int n=str.size();
+
+  unordered_map<char,int> mp;
+  int maxlen=0;
+  int l=str[0];
+  int r=str[0];
+  while(r<n){
+    if(find(str[r])!=mp.end())
+  }
+}
