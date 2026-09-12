@@ -32,3 +32,23 @@ using namespace std;
 
 
 //optimal
+
+int main(){
+  int arr[]={1,1,1,0,0,0,1,1,1,1,0};
+  int n=sizeof(arr)/sizeof(arr[0]);
+  cout << "enter k";
+  int k; cin >>k;
+
+  int l=0,r=0,maxlen=0;
+  int zero=0;
+  while(r<n){            //o(n)
+    if(arr[r]==0) zero++;
+    while(zero>k){                       //not  n alwayss     (worst case (n)   arr[1,1,1,1,1,0,0])
+      if(arr[l]==0) zero--;
+      l++;
+    }                                  
+    maxlen=max(maxlen,r-l+1);         
+    r++;                           
+  }                       //tc=o(2n)
+  cout << "maximum consecutive ones with at most k zeroes is: " << maxlen;
+}
