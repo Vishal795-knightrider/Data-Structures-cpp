@@ -50,8 +50,8 @@ using namespace std;
 //     for(int j=i;j<n;j++){
 //       sum+=arr[j];
 
-//       if(sum<=k){
-//       maxlen=max(maxlen,j-i+1);
+//       if(sum<=k){              //uper j loop se subarray bnti jari hai like[1] [1,2] [1,2,3] 
+//       maxlen=max(maxlen,j-i+1);    //j se subarray yhi maxlen calculate ho hai  to beech me kahi bhi subaray [2,3,4] bhi hogi jab j=i (i=2 se start hogi)
 //       }
 //       else if(sum>k) break;
 //     }
