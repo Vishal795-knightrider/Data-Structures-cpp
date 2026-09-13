@@ -48,9 +48,9 @@ using namespace std;
 
 //   int l=0,r=0,maxlen=0;
 //   unordered_map<int,int> mp;
-//   while(r<n){
+//   while(r<n){   //o(n)
 //     mp[fruits[r]]++;    // Add current fruit
-//     while(mp.size()>2){    // If more than 2 fruit types
+//     while(mp.size()>2){    // If more than 2 fruit types      //worst case o(n)
 //       mp[fruits[l]]--; 
 //       if(mp[fruits[l]]==0) mp.erase(fruits[l]);  //Remove fruit type if its count becomes zero
 //       l++;
@@ -58,5 +58,27 @@ using namespace std;
 //     maxlen=max(maxlen,r-l+1);    //is conditon ko hum if ke andar bhi likh skte hai if(mpp.size()<=2){if}  but uper while loop ye vaise bhi ensure kr raha hai
 //     r++;
 //   }
-//   cout << "max no. of fruits are: " << maxlen;
+//   cout << "max no. of fruits are: " << maxlen;     //tc=o(2n)  
 // }
+
+
+//3.optimal solution
+
+int main(){
+  int fruits[]={3,3,3,1,2,1,1,2,3,3,4};
+  int n=sizeof(fruits)/sizeof(fruits[0]);
+
+  int l=0,r=0,maxlen=0;
+  unordered_map<int,int> mp;
+  while(r<n){
+    mp[fruits[r]]++;
+    if(mp.size()>2){
+      mp[fruits[l]]--;
+      if(mp[fruits[l]]==0) mp.erase(fruits[l]);
+      l++;
+    }
+    maxlen=max(maxlen,r-l+1);
+    r++;
+  }
+  cout << "max no. of fruits are: " << maxlen;
+}
