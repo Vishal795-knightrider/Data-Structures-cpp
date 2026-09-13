@@ -17,7 +17,8 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-//brute force
+
+// 1.brute force  (generate all subarrays)
 
 // int main(){
 //   int fruits[]={3,3,3,1,2,1,1,2,3,3,4};
@@ -25,12 +26,12 @@ using namespace std;
 
  
 //   int maxlen=0; 
-//   for(int i=0;i<n;i++){
+//   for(int i=0;i<n;i++){      
 //     set<int> st;             //particular window mein maximum 2 different numbers allowed hain.
-//     for(int j=i;j<n;j++){
+//     for(int j=i;j<n;j++){     //Starting tree i se right side mein fruits collect karte jao.
 //       st.insert(fruits[j]);
 //       if(st.size()<=2){
-//         maxlen=max(maxlen,j-i+1);     //Agar basket mein fit ho sakta hai(yani basket 2 type ke fruit), window valid hai.
+//         maxlen=max(maxlen,j-i+1);     //Agar basket mein fit ho sakta hai(yani baskets me 2 type ke fruit), window valid hai.
 //       }
 //       else break;   //Agar set size 3 ho gayi, toh current starting point se aage koi bhi larger window valid nahi hogi.
 //     }
@@ -39,4 +40,23 @@ using namespace std;
 // }
 
 
-//
+//2. Better solution
+
+// int main(){
+//   int fruits[]={3,3,3,1,2,1,1,2,3,3,4};
+//   int n=sizeof(fruits)/sizeof(fruits[0]);
+
+//   int l=0,r=0,maxlen=0;
+//   unordered_map<int,int> mp;
+//   while(r<n){
+//     mp[fruits[r]]++;    // Add current fruit
+//     while(mp.size()>2){    // If more than 2 fruit types
+//       mp[fruits[l]]--; 
+//       if(mp[fruits[l]]==0) mp.erase(fruits[l]);  //Remove fruit type if its count becomes zero
+//       l++;
+//     }
+//     maxlen=max(maxlen,r-l+1);    //is conditon ko hum if ke andar bhi likh skte hai if(mpp.size()<=2){if}  but uper while loop ye vaise bhi ensure kr raha hai
+//     r++;
+//   }
+//   cout << "max no. of fruits are: " << maxlen;
+// }
