@@ -79,6 +79,6 @@ int main(){
     }
     maxlen=max(maxlen,r-l+1);
     r++;
-  }
+  }                                  //tc=o(n)  sc=0(1)
   cout << "max no. of fruits are: " << maxlen;
 }
