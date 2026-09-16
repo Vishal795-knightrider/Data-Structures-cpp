@@ -15,7 +15,7 @@
 // Isliye current window mein maximum 2 different numbers allowed hain.
 
 
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
 using namespace std;
 
 // 1.brute force  (generate all subarrays)
@@ -55,7 +55,7 @@ using namespace std;
 //       if(mp[fruits[l]]==0) mp.erase(fruits[l]);  //Remove fruit type if its count becomes zero
 //       l++;
 //     }
-//     maxlen=max(maxlen,r-l+1);    //is conditon ko hum if ke andar bhi likh skte hai if(mpp.size()<=2){if}  but uper while loop ye vaise bhi ensure kr raha hai
+//     maxlen=max(maxlen,r-l+1);    //is conditon ko hum if ke andar bhi likh skte hai if(mpp.size()<=2){if}  but uper while loop vaise bhi ensure kr raha hai
 //     r++;
 //   }
 //   cout << "max no. of fruits are: " << maxlen;     //tc=o(2n)  

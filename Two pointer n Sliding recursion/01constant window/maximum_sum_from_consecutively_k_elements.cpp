@@ -1,3 +1,5 @@
+//max. sum from consecutively from k elements
+
 #include <bits/stdc++.h>
 using namespace std;
 

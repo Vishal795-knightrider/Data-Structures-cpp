@@ -33,7 +33,7 @@ int main(){
   int l=0,r=0,maxlen=0;
   while(r<n){       o(n)
     if(hash[str[r]]!=-1){   //iska matlab vo char present hai hash map me
-      if(hash[str[r]]>=l) l=hash[str[r]]+1;   //tabhi updat krna hai jab hash map me present char come between l to r       (Because if the duplicate character is at index 5, the new window must start at index 6)
+      if(hash[str[r]]>=l) l=hash[str[r]]+1;  //agar vo l se piche hai to koi matlab nhi uska kyuki vo repeaing nhi hoga(hame valid window me check krna hai duplicate that is l to r ke bich m )  //tabhi updat krna hai jab hash map me present char come between l to r       (Because if the duplicate character is at index 5, the new window must start at index 6)
     }
     int len=r-l+1;
     maxlen=max(maxlen,len);
@@ -42,3 +42,11 @@ int main(){
   }
   cout << "The maximum length is: " << maxlen;       //tc=o(n)  sc=o(1)
 }
+
+
+// Character a
+// hash['a'] = 1;
+
+// Internally:
+
+// hash[97] = 1;       ascii
