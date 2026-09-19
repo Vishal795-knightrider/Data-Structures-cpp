@@ -78,11 +78,11 @@ int main(){
   int r=0; int l=0;int maxlen=0;int sum=0;
   while(r<n){
     sum+=arr[r];
-    if(sum==k) maxlen=max(maxlen,r-l+1);
     while(sum>k){
       sum-=arr[l];
       l++;
     }
+    if(sum==k) maxlen=max(maxlen,r-l+1);
     r++;
   }
   cout << "The longest subarray is: " << maxlen;
