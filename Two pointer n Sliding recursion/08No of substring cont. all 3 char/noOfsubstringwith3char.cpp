@@ -10,10 +10,10 @@ using namespace std;
 //   int n=str.size();
 //   int cnt=0;
 //   for(int i=0;i<n;i++){
-//     set<int> st;
+//     set<char> st;
 //     for(int j=i;j<n;j++){
 //       st.insert(str[j]);
-//       if(st.size()==3) cnt++;
+//       if(st.size()==3) cnt++;        //when set size bexome 3 after for evry new character it always satify so we can write also cnt=(n-j) then break (time complexity better)
 //     }
 //   }
 //   cout << "no of substring are: " << cnt;
