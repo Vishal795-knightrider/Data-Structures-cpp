@@ -29,9 +29,9 @@ int main(){
   string str="cabx^ssydk,s";
   int n=str.size();
 
-  int hash[255]={0};                      
+  vector<int> hash(256,-1);                     
   int l=0,r=0,maxlen=0;
-  while(r<n){       o(n)
+  while(r<n){         //o(n)
     if(hash[str[r]]!=-1){   //iska matlab vo char present hai hash map me
       if(hash[str[r]]>=l) l=hash[str[r]]+1;  //agar vo l se piche hai to koi matlab nhi uska kyuki vo repeaing nhi hoga(hame valid window me check krna hai duplicate that is l to r ke bich m )  //tabhi updat krna hai jab hash map me present char come between l to r       (Because if the duplicate character is at index 5, the new window must start at index 6)
     }
@@ -48,5 +48,13 @@ int main(){
 // hash['a'] = 1;
 
 // Internally:
-
 // hash[97] = 1;       ascii
+
+
+
+// Ye kaam kaise karta hai?
+
+// hash[ch] me us char ka last seen index store hota hai.
+// Jab r pe char ch aata hai, 2 cases hain:
+// Last seen index l ke andar hai (hash[ch] >= l): matlab current window [l..r-1] me ch pehle se hai, duplicate ban gaya. Window ko valid rakhne ke liye l = hash[ch] + 1 karna padega, yani duplicate ke ek aage.
+// Last seen index l se peeche hai (hash[ch] < l): wo purani occurrence ab window me hai hi nahi, to koi duplicate nahi. l ko touch mat karo. Yahi tumhara comment bol raha hai, aur bilkul sahi hai.
