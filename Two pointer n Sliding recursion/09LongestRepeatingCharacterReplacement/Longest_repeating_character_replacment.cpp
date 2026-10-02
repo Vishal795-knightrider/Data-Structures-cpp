@@ -6,25 +6,53 @@ using namespace std;
 
 
 //brute force (generate all substrings)
+// int main(){
+//   string str="AABABBA";
+//   int n=str.size();
+//   cout << "Enter k: ";
+//   int k; cin >>  k;
+//   int maxlen=0;
+//   for(int i=0;i<n;i++){
+//     int hash[26]={0};     //all capital letters
+//     int maxfreq=0;
+//     int changes=0;
+//     for(int j=i;j<n;j++){
+//       hash[str[j]-'A']++;
+//       maxfreq=max(maxfreq,hash[str[j]-'A']);      //this will find the maxfreq of each character so that we can check what character i have to replace to get the maxlen
+//       changes=(j-i+1)-maxfreq;               //kitne change honge current subsrting me
+//       if(changes<=k){                 //agar jitne chracter chnage krne hai vo agar k se equal ya km hai to maxlen nikalo
+//         maxlen=max(maxlen,j-i+1);
+//       }
+//       else break;
+//     }
+//   }
+//   cout << "Longest substring after replacing " << k << " charcater is: " << maxlen;
+// } 
+
+
+
+//better
 int main(){
   string str="AABABBA";
   int n=str.size();
   cout << "Enter k: ";
   int k; cin >>  k;
+  int r=0;int l=0;
+  int hash[26]={0};
+  int changes=0;
   int maxlen=0;
-  for(int i=0;i<n;i++){
-    int hash[26]={0};     //all capital letters
-    int maxfreq=0;
-    int changes=0;
-    for(int j=i;j<n;j++){
-      hash[str[j]-'A']++;
-      maxfreq=max(maxfreq,hash[str[j]-'A']);      //this will find the maxfreq of each character so that we can check what character i have to replace to get the maxlen
-      changes=(j-i+1)-maxfreq;               //kitne change honge current subsrting me
-      if(changes<=k){                 //agar jitne chracter chnage krne hai vo agar k se equal ya km hai to maxlen nikalo
-        maxlen=max(maxlen,j-i+1);
-      }
-      else break;
+  int maxfreq=0;
+  while(r<n){                   ///o (n)
+    hash[str[r]-'A']++;
+    maxfreq=max(maxfreq,hash[str[r]-'A']);
+    changes=(r-l+1)-maxfreq;
+    while(changes>k){                        //throught out the journey it will take o(n)
+      hash[str[l]-'A']--;
+      l++;
+      changes=(r-l+1)-maxfreq;
     }
-  }
+    maxlen=max(maxlen,r-l+1);
+    r++;
+  }                                        //tc=O(n+n)x26
   cout << "Longest substring after replacing " << k << " charcater is: " << maxlen;
-} 
+}
