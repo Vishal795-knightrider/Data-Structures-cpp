@@ -47,14 +47,14 @@ int main(){
   cout << "Enter k";
   int k; cin >> k;
   map<int,int> mpp;
-mpp[0] = 1;
+mpp[0] = 1;                                    //0 sum kitni baar aya that is 1 baar ye hmne pehle hi le liya
 int preSum = 0;
 int cnt = 0;
 for(int i = 0; i <n; i++) {
     preSum += arr[i];                 //array elemenst add krte ja rahe hai presum nikalne ke liye
     int remove = preSum - k;              //check kari if previous their is sum =presum-k
-    cnt += mpp[remove];              //agar vo presum hai to uska cnt add kardo
-    mpp[preSum] += 1;                   //map me ab sum ke sath uska count  add kr rahe hai
+    cnt +=mpp[remove];              //agar vo presum hai to uska cnt add kardo
+    mpp[preSum]++;                   //map me ab sum ke sath uska count  add kr rahe hai
 }
 cout << "count is " << cnt;
 }
