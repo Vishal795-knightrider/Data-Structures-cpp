@@ -27,7 +27,7 @@ using namespace std;
 //   cout << "Enter goal ";
 //   int goal; cin >> goal;
 //   unordered_map<int,int> presum;
-//   presum[0]=1;     //0 kitni baar aya 1 baar aya
+//   presum[0]=1;     //0  sum kitni baar aya 1 baar aya hai
 //   int sum=0;
 //   int cnt=0;
 //   for(int i=0;i<n;i++){
