@@ -99,10 +99,10 @@ int main(){
   }
   while(r<n){
     if(mp[s[r]]>0){
-      cnt=cnt+1;
+      cnt=cnt+1;        //agar vo t wala character s me occur ho gya to cnt bhadaoo 
     } 
     mp[s[r]]--;
-    while(cnt==m){
+    while(cnt==m){                /// matlab jitn bhi character t me the sb s me aa chucke hai
       if(r-l+1<minlen){
         minlen=r-l+1;
         startidx=l;
