@@ -36,4 +36,20 @@ using namespace std;
 // }
 
 
-
+//genral code
+int main(){
+  string s="abcabc";
+  int ans=0;
+  int n=s.size();
+  for(int i=0;i<n;i++){
+    int hash[3]={0};
+    for(int j=i;j<n;j++){
+      hash[s[j]-'a']++;                        //hash[a-a]=hash[0] means it will store the count of a similarlt hash[1] for b ..
+      if(hash[0]>0 & hash[1]>0 & hash[2]>0){
+        ans+=n-j;
+        break;
+      }
+    }
+  }
+  cout << "No of substrings containing at least one occurrence of the characters a, b and c: " << ans;
+}
