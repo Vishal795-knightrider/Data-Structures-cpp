@@ -52,32 +52,69 @@ using namespace std;
 
 
 //brute (another solution)
+// int main(){
+//   string s="ADOBECODEBANC"; string t="ABC";
+//   int n=s.size(); int m=t.size();
+//   if(n<m) cout << "";
+//   int minlen=1e9;  
+//   int startidx=-1;
+//   for(int i=0;i<n;i++){
+//     int hash[256]={0};
+//     for(int k=0;k<m;k++){
+//       hash[t[k]]++;
+//     }
+//     int cnt=0;    //jese hi mujhe t ke char s me milega cnt inc krduga  aur jese hi vo t string ke size ke equal hoga yani vo puri t string s me aa chuki hai
+
+//     for(int j=i;j<n;j++){
+//       if(hash[s[j]]>0){          //agar s me jate hu s char ko map me dekho (map me t string ke char ke freq pade hue hai)  agar vo positiv hai iska s ka char t me present hai 
+//         cnt=cnt+1;         
+//         hash[s[j]]--;       //km karodge yeni vo char match hua aur hmne nikal diya
+//       }
+
+//       if(cnt==m){           
+//         if(j-i+1 < minlen) minlen=j-i+1;
+//         startidx=i;
+//         break;
+//       }
+//     }
+//   }
+//   if(startidx!=-1) cout << "The minimum window substring is: " << s.substr(startidx,minlen);
+//   else cout << "";
+// }
+
+
+//optimal  with two pointer
+
 int main(){
   string s="ADOBECODEBANC"; string t="ABC";
   int n=s.size(); int m=t.size();
   if(n<m) cout << "";
   int minlen=1e9;  
   int startidx=-1;
-  for(int i=0;i<n;i++){
-    int hash[256]={0};
-    for(int k=0;k<m;k++){
-      hash[t[k]]++;
-    }
-    int cnt=0;    //jese hi mujhe t ke char s me milega cnt inc krduga  aur jese hi vo t string ke size ke equal hoga yani vo puri t string s me aa chuki hai
-
-    for(int j=i;j<n;j++){
-      if(hash[s[j]]>0){          //agar s me jate hu s char ko map me dekho (map me t string ke char ke freq pade hue hai)  agar vo positiv hai iska s ka char t me present hai 
-        cnt=cnt+1;         
-        hash[s[j]]--;       //km karodge yeni vo char match hua aur hmne nikal diya
-      }
-
-      if(cnt==m){           
-        if(j-i+1 < minlen) minlen=j-i+1;
-        startidx=i;
-        break;
-      }
-    }
+  int r=0;int l=0;
+  int mp[256]={0};
+  int cnt=0;
+  for(int i=0;i<m;i++){
+    mp[t[i]]++;
   }
-  if(startidx!=-1) cout << "The minimum window substring is: " << s.substr(startidx,minlen);
+  while(r<n){
+    if(mp[s[r]]>0){
+      cnt=cnt+1;
+    } 
+    mp[s[r]]--;
+    while(cnt==m){
+      if(r-l+1<minlen){
+        minlen=r-l+1;
+        startidx=l;
+      }
+    
+      mp[s[l]]++;                        //ab tumhe map me se nikalna hai
+      if(mp[s[l]]>0) cnt=cnt-1;         //nikalne ke baar agar phirse positiv eho jate hai vo character abhi bacha hua hai t ka s me ane se ya abhi tk s me nhi aya to cnt ko km karo kyuki 1 character phirse reh gya
+      l++;
+      }
+      r++;
+    }
+    r++;
+  if(startidx!=-1) cout << "The window substring is: " << s.substr(startidx,minlen); 
   else cout << "";
 }
