@@ -50,3 +50,12 @@ int atMost(vector<int>& nums, int k) {
 int numberOfOddSubarrays(vector<int>& nums,int k) {
         return atMost(nums,k)-atMost(nums,k-1);
       }
+
+
+// That magic formula ans += (r - l + 1) is the core secret of sliding windows! Let's break down the real logic behind why all subarrays ending at r equal r - l + 1.
+
+// The Logic: "Ending at r"
+// When your r pointer stops at a certain position, you are looking at all valid subarrays that must end right here at index r.
+// Your valid window starts at l and ends at r. Because the window satisfies your "at most k" condition, it means:
+// The largest valid starting point is l.
+// You can also start your subarray a bit further to the right—at l + 1, l + 2, all the way up to r.
