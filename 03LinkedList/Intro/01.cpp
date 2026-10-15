@@ -26,13 +26,32 @@ Node* convertArr2LL(vector<int> &arr){
   for(int i=1;i<arr.size();i++){
     Node* temp=new Node(arr[i]);
     mover->next=temp;
-    mover=temp;
+    mover=temp ;
   }
   return head;
 }
 
+
+// 2. Length of linked list
+int length(Node *head){
+  Node* temp=head;
+  int cnt=0;
+  while(temp){
+    temp=temp->next;
+    cnt++;
+  }
+  return cnt;
+}
+
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
-  cout << head->data;
+  Node* temp=head;
+  while(temp){
+    cout << temp->data << " ";
+    temp=temp->next;
+  }
+  cout << endl;
+  cout << "lenght of linked list is: " << length(head) << endl;
 }
