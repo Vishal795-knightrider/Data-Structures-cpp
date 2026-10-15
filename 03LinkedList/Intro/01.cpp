@@ -55,6 +55,15 @@ bool check(Node* head,int val){
   return ans;
 }
 
+//4. deletion of a node
+Node* deleteHead(Node* head){
+  if(head==NULL) return NULL;       //if empty linked list 
+  Node* temp=head;
+  head=head->next;
+  free(temp);
+  return head;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
