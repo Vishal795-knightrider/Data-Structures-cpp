@@ -44,6 +44,17 @@ int length(Node *head){
 }
 
 
+// 3. Check if element present or not
+bool check(Node* head,int val){
+  bool ans=false;
+  Node* temp=head;
+  while(temp){
+    if(temp->data ==val) ans=true;
+    temp=temp->next;
+  }
+  return ans;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
@@ -54,4 +65,5 @@ int main(){
   }
   cout << endl;
   cout << "lenght of linked list is: " << length(head) << endl;
+  cout << "check element or not: " << check(head,8);
 }
