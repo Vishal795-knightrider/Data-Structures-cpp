@@ -76,6 +76,29 @@ Node* deleteTail(Node* head){
   return head;
 }
 
+//6. delete kth node of LL
+deleteK(Node* head,int k){
+  if(head==NULL) return NULL:
+  if(k==1){
+    Node* temp=head;
+    head=head->next;
+    free(temp);
+    return head;
+  }
+  int cnt=0; Node* temp=head;Node* prev=NULL;
+  while(temp!=NULL){
+    cnt++;
+    if(cnt==k){
+      prev->next=prev->next->next;
+      free(temp);
+      break;
+    }
+    prev=temp;
+    temp=temp->next;
+  }
+  return head;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
