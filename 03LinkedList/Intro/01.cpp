@@ -141,6 +141,28 @@ Node insertLast(Node *head,int ele){
   return newhead;
 }
 
+
+//10.insertion at kth position
+Node insertk(Node* head,ele,int k){
+  if(head==NULL){
+    if(k==1) return new Node(ele);
+    else return NULL;
+  }
+  if(k==1) return new Node(ele,head);
+  Node *temp=head;
+  int cnt=0;
+  while(temp!=NULL){
+    cnt++;
+    if(cnt==k-1){
+      Node* newNode=new node(ele,temp->next);
+      temp->next=newNode;
+      break;
+    }
+    temp=temp->next;
+  }
+  return head;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
