@@ -127,6 +127,20 @@ Node insertHead(Node* head,int ele){
   return newhead;
 }
 
+//9.insert at last
+Node insertLast(Node *head,int ele){
+  if(head==NULL){
+    return new Node(val);
+  }
+  Node *temp=head;
+  while(temp->next!=NULL){
+    temp=temp->next;
+  }
+  Node* newhead=new Node(ele);
+  temp->next=newhead;
+  return newhead;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
