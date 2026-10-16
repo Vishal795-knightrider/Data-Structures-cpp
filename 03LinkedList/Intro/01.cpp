@@ -163,6 +163,22 @@ Node insertk(Node* head,ele,int k){
   return head;
 }
 
+//11/ insert before the val x 
+insertbeforeEle(Node* head,int val,int ele){
+  if(head->data==val) return new Node(ele,head);
+  Node* prev=NULL;
+  Node* temp=head;
+  while(temp->next!=NULL){
+    if(temp->next->data==val){
+      Node* newNode=new Node(ele,temp->next);
+      temp->next=newNode;
+      break;
+    }
+    temp=temp->next;
+  }
+  return head;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
