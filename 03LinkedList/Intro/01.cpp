@@ -99,6 +99,28 @@ deleteK(Node* head,int k){
   return head;
 }
 
+//7. removeby ele
+removeele(Node* head,int val){
+  if(head==NULL) return NULL:
+  if(head->data==val){
+    Node* temp=head;
+    head=head->next;
+    free(temp);
+    return head;
+  }
+  Node* temp=head;Node* prev=NULL;
+  while(temp!=NULL){
+    if(temp->data==val){
+      prev->next=prev->next->next;
+      free(temp);
+      break;
+    }
+    prev=temp;
+    temp=temp->next;
+  }
+  return head;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
