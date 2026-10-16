@@ -55,12 +55,24 @@ bool check(Node* head,int val){
   return ans;
 }
 
-//4. deletion of a node
+//4. deletion of a head
 Node* deleteHead(Node* head){
   if(head==NULL) return NULL;       //if empty linked list 
   Node* temp=head;
   head=head->next;
   free(temp);
+  return head;
+}
+
+//5. deletion of a tail
+Node* deleteTail(Node* head){
+  if(head==NULL || head->next==NULL) return NULL;   //if ll empty or it has single element
+  Node* temp=head;
+  while(temp->next->next!=NULL){
+    temp=temp->next;
+  }
+  free(temp->next)
+  temp->next=nullptr;
   return head;
 }
 
