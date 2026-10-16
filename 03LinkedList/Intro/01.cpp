@@ -121,6 +121,12 @@ removeele(Node* head,int val){
   return head;
 }
 
+//8.insert at head
+Node insertHead(Node* head,int ele){
+  Node* newhead=new Node(ele,head);
+  return newhead;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
