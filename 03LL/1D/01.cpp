@@ -99,7 +99,7 @@ deleteK(Node* head,int k){
   return head;
 }
 
-//7. removeby ele
+//7. remove by ele
 removeele(Node* head,int val){
   if(head==NULL) return NULL:
   if(head->data==val){
