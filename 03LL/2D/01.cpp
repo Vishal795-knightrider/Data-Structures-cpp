@@ -35,6 +35,16 @@ Node* convertArr2DLL(vector<int> &arr){
   return head;
 }
 
+//2.delete head
+Node* deletehead(Node* head){
+  Node* temp=head;
+  head=head->next;
+  head->prev=nullptr;
+  temp->next=nullptr;
+  free(temp);
+  return head;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2DLL(arr);
@@ -43,4 +53,6 @@ int main(){
     cout << temp->data << " ";
     temp=temp->next;
   }
+  head=deletehead(head);
+  cout << head->data;
 }
