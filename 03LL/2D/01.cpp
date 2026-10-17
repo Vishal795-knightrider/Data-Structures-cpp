@@ -109,6 +109,13 @@ Node* deletebyele(Node* head,int ele){  //it is given that the ele shoudl not be
   return head;
 }
 
+//6.insertion before head
+Node* insertHead(Node* head,int ele){
+  Node* newHead=new Node(ele,head,nullptr)
+  head->prev=newHead;
+  return newHead;
+}
+
 int main( ){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2DLL(arr);
