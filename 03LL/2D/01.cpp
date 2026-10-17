@@ -129,6 +129,23 @@ Node* inserttail(Node* head,int ele){
   return head;
 }
 
+//8. insert before kth ele
+Node* insertk(Node* head,int k,ele){
+  if(k==1) return insertHead(head,ele);
+  Node* temp=head;
+  int cnt=0;
+  whike(temp!=NULL){
+    cnt++;
+    if(cnt==k) break;
+    temp=temp->next;
+  }
+  Node* back=temp->prev;
+  Node* newNode=new Node(ele,temp,back);
+  back->next=newNode;
+  temp->prev=newNode;
+  return head;
+}
+
 int main( ){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2DLL(arr);
