@@ -116,6 +116,19 @@ Node* insertHead(Node* head,int ele){
   return newHead;
 }
 
+//7.insertion before tail
+Node* inserttail(Node* head,int ele){
+  Node* tail=head;
+  while(tail->next!=NULL){
+    tail=tail->next;
+  }
+  Node* back=tail->prev;
+  Node* newNode=new Node(ele,tail,back);
+  tail->prev=newNode;
+  back->next=newNode;
+  return head;
+}
+
 int main( ){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2DLL(arr);
