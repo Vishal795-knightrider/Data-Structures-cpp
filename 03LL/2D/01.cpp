@@ -146,6 +146,14 @@ Node* insertk(Node* head,int k,ele){
   return head;
 }
 
+//9.insert before given node
+void insertnode(Node* node,int ele){
+  Node* back=node->back;
+  Node* newNode=new Node(ele,node,back);
+  prev->next=newNode;
+  node->prev=newNode;
+}
+
 int main( ){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2DLL(arr);
