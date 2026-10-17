@@ -57,8 +57,9 @@ Node* deletetail(Node* head){
   return head;
 }
 
-//4/delete kth form dll
+//4.delete kth form dll
 Node* deletek(Node* head,int k){
+  if(head==NULL) return NULL;
   int cnt=0;
   Node* temp=head;
   while(temp){ 
@@ -66,7 +67,7 @@ Node* deletek(Node* head,int k){
     if(cnt==k) break;
       temp=temp->next;
   } 
-  Node* back=temp->prev;
+  Node* back=temp->prev;  //jab hm while se bahar aynge to hamra temp usi node pr hoga jisse delete krna hai
   Node* front=temp->next;
   if(back==NULL && front==NULL){
     delete temp;
@@ -85,6 +86,26 @@ Node* deletek(Node* head,int k){
     temp->prev=nullptr;
     delete temp;
   }
+  return head;
+}
+
+//5.delete by value from dll
+Node* deletebyele(Node* head,int ele){  //it is given that the ele shoudl not be in head node
+  Node* temp=head;
+  while(temp){
+    if(temp->data==ele) break;
+    temp=temp->next;
+  }
+  Node* back=temp->prev;
+  Node* front=temp->next;
+  if(front==NULL){
+    return deletetail(temp);
+  }
+  back->next=front;
+  front->prev=back;
+  temp->next=nullptr;
+  temp->prev=nullptr;
+  delete temp;
   return head;
 }
 
