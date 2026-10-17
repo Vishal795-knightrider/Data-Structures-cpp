@@ -45,6 +45,18 @@ Node* deletehead(Node* head){
   return head;
 }
 
+//3.delete tail
+Node* deletetail(Node* head){
+  Node* temp=head;
+  while(temp->next!=NULL){
+    temp=temp->next;
+  }
+  temp->prev->next=nullptr;
+  temp->prev=nullptr;
+  free(temp);
+  return head;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2DLL(arr);
