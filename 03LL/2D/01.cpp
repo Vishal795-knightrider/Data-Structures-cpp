@@ -57,7 +57,38 @@ Node* deletetail(Node* head){
   return head;
 }
 
-int main(){
+//4/delete kth form dll
+Node* deletek(Node* head,int k){
+  int cnt=0;
+  Node* temp=head;
+  while(temp){ 
+    cnt++;
+    if(cnt==k) break;
+      temp=temp->next;
+  } 
+  Node* back=temp->prev;
+  Node* front=temp->next;
+  if(back==NULL && front==NULL){
+    delete temp;
+    return NULL;
+  }
+  else if(back==NULL){
+      return deletehead(head);
+    }
+  else if(front==NULL){
+    return deletetail(head);
+  }
+  else{
+    back->next=front;
+    front->prev=back;
+    temp->next=nullptr;
+    temp->prev=nullptr;
+    delete temp;
+  }
+  return head;
+}
+
+int main( ){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2DLL(arr);
   Node* temp=head;
