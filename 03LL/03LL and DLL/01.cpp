@@ -58,21 +58,21 @@ Node* reverseLL(Node* head){
 Node* sumTwoList(Node* l1,Node* l2){
   Node* temp1=l1;
   Node* temp2=l2;
-  Node* dummyNode=new Node(-1);  //yeh newlist sum la head ke liye rakha hai
+  Node* dummyNode=new Node(-1);  //yeh newlist sum ka head ke liye rakha hai last me isko hi return krdeneg
   Node* curr=dummyNode;   //to traverse my new sumlist
   int carry=0;
   while(temp1 || temp2){
     int sum=carry;
     if(temp1) sum+=temp1->data;   //agar temp1 hai to 
     if(temp2) sum+=temp2->data;
-    Node* newNode=new Node(sum%10);        //unit place ko add kren ke liye
-    carry=sum/10;
-    curr->next=newNode;    //in the very starting curr pointing to null (bczo dummynode (-1))  now curr next will pointe to newNode   (yaha par tumhara cur pehle baar newNode se connect ho gya aur tumhara dummynode bhi newNode connect ho gya)
-    curr=curr->next;
+    Node* newNode=new Node(sum%10);        //unit place ko add krne  ke liye
+    carry=sum/10;                          //jo caray ayega vo next sum me add krne ke liye
+    curr->next=newNode;    //in the very starting curr pointing to null ( curr=dummnode and dummynode new node (-1))  now curr next will pointe to newNode   (yaha par tumhara cur pehle baar newNode se connect ho gya aur tumhara dummynode bhi newNode connect ho gya)
+    curr=curr->next;      //is line se uper hamara curr newNode se connect gya hai to ab curr ko next node pr bhej do
     if(temp1) temp1=temp1->next;
     if(temp2) temp2=temp2->next;
   }
-  if(carry){
+  if(carry){                         //agar last me carry back jata hai to last code me add krdo
     Node* newNode=new Node(carry);
     curr->next=newNode;
   }
