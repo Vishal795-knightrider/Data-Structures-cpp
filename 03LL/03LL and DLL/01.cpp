@@ -79,6 +79,36 @@ Node* sumTwoList(Node* l1,Node* l2){
   return dummyNode->next;
 }
 
+//3.Segregate odd and even nodes in Linked List
+// Given the head of a singly linked list, rearrange the nodes so all even-valued nodes appear before all odd-valued nodes. Relative order inside the even group and inside the odd group must remain unchanged.
+// Node values decide the grouping, not node positions. Return the head of the rearranged linked list after segregation finishes.
+// Input: head = [1, 2, 3, 4, 5, 6]
+// Output: [2, 4, 6, 1, 3, 5]
+
+//brutr force  pehle odd even me array me dalo uske baad aray ke ele ko given ll me replace krdo
+// Node* oddEvenLL(Node* head){
+//   vector<int> ans;
+//   Node* t1=head;
+//   while(t1 && t1->next){
+//     ans.push_back(t1->data);
+//     t1=t1->next->next;
+//   }
+//   if(t1) ans.push_back(t1->data);  //agar t1 last node pr hai to while loop false but we have one node leeft to insert in arr so after while if temp is rsent pus
+//   Node* t2=head->next;
+//   while(t2 && t2->next){
+//     ans.push_back(t2->data);
+//     t2=t2->next->next;
+//   }
+//   if(t2) ans.push_back(t2->data);
+//   Node* temp=head; int i=0;
+//   while(temp){
+//     temp->data=ans[i]; 
+//     i++;
+//     temp=temp->next;
+//   }
+//   return head;
+// }
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
@@ -103,6 +133,18 @@ int main(){
   temp=head;
   //print ll after sumtwo list
   cout << "The new sum list is:" << endl;
+  while(temp){
+    cout << temp->data << " ";
+    temp=temp->next;
+  }
+  cout << endl;
+
+  //3.odd even list
+  arr={1,2,3,4,5};
+  head=convertArr2LL(arr);
+  head=oddEvenLL(head);
+  cout << "Odd Even Linked List: " << endl;
+  temp=head;
   while(temp){
     cout << temp->data << " ";
     temp=temp->next;
