@@ -89,7 +89,7 @@ Node* sumTwoList(Node* l1,Node* l2){
 // Node* oddEvenLL(Node* head){
 //   vector<int> ans;
 //   Node* t1=head;
-//   while(t1 && t1->next){
+//   while(t1 && t1->next){    //yaha pr t1->next->next nhi likh akyuki aagar t1->next->next null to even bhi null hoga jo yaha pr likha hai
 //     ans.push_back(t1->data);
 //     t1=t1->next->next;
 //   }
@@ -108,6 +108,23 @@ Node* sumTwoList(Node* l1,Node* l2){
 //   }
 //   return head;
 // }
+
+//optmial (without extra space that is array) we weill change the ppinter in ll itself
+// isme even hamesha odd se age rahegaa
+Node* oddEvenLL(Node* head){
+  Node* odd=head;
+  Node* even=head->next;
+  Node* evenHead=head->next;  //even ke head ko store krne ke liye so that last odd ele can point to thsi evenhead
+  while(even && even->next){
+    odd->next=odd->next->next;
+    even->next=even->next->next;
+
+    odd=odd->next;
+    even=even->next;
+  }
+  odd->next=evenHead;
+  return head;
+}
 
 int main(){
   vector<int> arr={1,2,3,4,5};
