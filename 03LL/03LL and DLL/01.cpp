@@ -89,7 +89,7 @@ Node* sumTwoList(Node* l1,Node* l2){
 // Node* oddEvenLL(Node* head){
 //   vector<int> ans;
 //   Node* t1=head;
-//   while(t1 && t1->next){    //yaha pr t1->next->next nhi likh akyuki aagar t1->next->next null to even bhi null hoga jo yaha pr likha hai
+//   while(t1 && t1->next){ 
 //     ans.push_back(t1->data);
 //     t1=t1->next->next;
 //   }
