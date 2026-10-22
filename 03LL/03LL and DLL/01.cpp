@@ -169,6 +169,39 @@ Node* oddEvenLL(Node* head){
 // }
 
 
+//optimal (we have to do this in one pass so we will segregate three ll one contain 0 others 1and 2 then we will connect those )
+Node* sort(Node* head){
+  if(head==NULL || head->next==NULL) return head;
+
+  Node* zeroHead=new Node(-1);    //yeh hmne dummynode ki tarh man lo kiya hai  //jis ll me 0s honge uska head store krne ke liye
+  Node* oneHead=new Node(-1);      //1s ll ka head
+  Node* twoHead=new Node(-1);
+
+  Node* zero=zeroHead;    //yeh hm ll bnayenge 0s wali usko traverse ke liye     (nayi ll  nhi bnagi yaha hm bs existing ll me hi pointer ko manipulate krnege)
+  Node* one=oneHead;
+  Node* two=twoHead;
+
+  Node* temp=head;    //jo given ll uspe traverse krne ke liye  isme se hi  to 0s.1s extract krke 3 ll me dalne hai
+  while(temp){
+    if(temp->data==0){
+      zero->next=temp;
+      zero=temp;            //zero se traverse krnege is 0s wali LL ko
+    }
+    else if(temp->data==1){
+      one->next=temp;
+      one=temp;
+    }
+    else{
+      two->next=temp;
+      two=temp;
+    }
+    temp=temp->next;
+  }
+  zero->next=(oneHead->next) ? oneHead->next:twoHead->next;           //zero->next ko 1 ke head se tabhi connect karuga 1 honge bhi manlo 1 hai hi nhi tb fir 2 ke head connect krna padega
+  one->next=(twoHead->next)? twoHead->next:nullptr;
+  two->next=nullptr;
+  return zeroHead->next;
+}
 
 
 
