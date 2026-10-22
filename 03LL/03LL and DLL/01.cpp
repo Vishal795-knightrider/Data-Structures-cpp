@@ -72,7 +72,7 @@ Node* sumTwoList(Node* l1,Node* l2){
     if(temp1) temp1=temp1->next;
     if(temp2) temp2=temp2->next;
   }
-  if(carry){                         //agar last me carry back jata hai to last code me add krdo
+  if(carry){                         //agar last me carry bach jata hai to last node me add krdo
     Node* newNode=new Node(carry);
     curr->next=newNode;
   }
@@ -93,7 +93,7 @@ Node* sumTwoList(Node* l1,Node* l2){
 //     ans.push_back(t1->data);
 //     t1=t1->next->next;
 //   }
-//   if(t1) ans.push_back(t1->data);  //agar t1 last node pr hai to while loop false but we have one node leeft to insert in arr so after while if temp is rsent pus
+//   if(t1) ans.push_back(t1->data);  //agar t1 last node pr hai to while loop false but we have one node leeft to insert in arr so after while if temp is present push
 //   Node* t2=head->next;
 //   while(t2 && t2->next){
 //     ans.push_back(t2->data);
@@ -125,6 +125,52 @@ Node* oddEvenLL(Node* head){
   odd->next=evenHead;
   return head;
 }
+
+
+
+//4.Sort a Linked List of 0s, 1s and 2s by Changing Links
+// Given the head of a singly linked list, where every node contains only 0, 1, or 2, sort the linked list in non-decreasing order.
+// Return the head of the sorted linked list. Linked list examples appear in array form for compact representation.
+
+// Example 1
+// Input: [1, 2, 0, 1, 2, 0, 1]
+// Output: [0, 0, 1, 1, 1, 2, 2]
+// Explanation: All 0 values move to the front, followed by all 1 values, followed by all 2 values.
+
+//Brute force (as we know there are only 3 elements 0,1,2 so we can store the count of each then the elemenst in the same ll)
+// Node* sort(Node* head){
+//   Node* temp=head;
+//   int cnt0=0,cnt1=0,cnt2=0;
+//   while(temp){
+//     if(temp->data==0) cnt0++;
+//     if(temp->data==1) cnt1++;
+//     if(temp->data==2) cnt2++;
+//     temp=temp->next;
+//   }
+//   temp=head;
+//   while(temp){
+//     while(cnt0){
+//     temp->data=0;
+//     cnt0--;
+//     temp=temp->next;
+//     }
+//     while(cnt1){
+//     temp->data=1;
+//     cnt1--;
+//     temp=temp->next;
+//     }
+//     while(cnt2){
+//     temp->data=2;
+//     cnt2--;
+//     temp=temp->next;
+//     }
+//   }
+//   return head;
+// }
+
+
+
+
 
 int main(){
   vector<int> arr={1,2,3,4,5};
@@ -161,6 +207,18 @@ int main(){
   head=convertArr2LL(arr);
   head=oddEvenLL(head);
   cout << "Odd Even Linked List: " << endl;
+  temp=head;
+  while(temp){
+    cout << temp->data << " ";
+    temp=temp->next;
+  }
+  cout << endl;
+
+  //4.sort 0 1 2
+  arr={0,1,2,0,1,1,2,2};
+  head=convertArr2LL(arr);
+  head=sort(head);
+  cout << "sorted List" << endl;
   temp=head;
   while(temp){
     cout << temp->data << " ";
