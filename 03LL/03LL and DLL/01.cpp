@@ -205,6 +205,41 @@ Node* sort(Node* head){
 
 
 
+//5. Remove nth node from the end
+// Given the head of a singly linked list and an integer n, remove the nth node from the back of the linked list and return the updated head.
+// The value of n stays between 1 and the length of the linked list. The deletion can affect the first node, a middle node, or the last node.
+// Example 1
+// Input: head = [1, 2, 3, 4, 5], n = 2
+// Output: [1, 2, 3, 5]
+// Explanation: The second node from the back has value 4, so deletion produces [1, 2, 3, 5].
+
+//Brute force
+Node* removeEnd(Node* head,int n){
+  Node* temp=head;
+  int len=0;
+  while(temp){
+    len++;
+    temp=temp->next;
+  }
+  int k=len-n;    //ab ye kth position vo uski node ki prev position hai jo hame delete krni hai from the starting
+  if(k==0){
+    head=head->next;
+    delete(temp);
+    return head;
+  }
+  temp=head;
+  while(temp){
+    k--;
+    if(k==0){
+      Node* todelete=temp->next;
+      temp->next=temp->next->next;
+      delete(todelete);
+    }
+    temp=temp->next;
+  }
+  return head;
+}
+
 int main(){
   vector<int> arr={1,2,3,4,5};
   Node* head=convertArr2LL(arr);
@@ -252,6 +287,20 @@ int main(){
   head=convertArr2LL(arr);
   head=sort(head);
   cout << "sorted List" << endl;
+  temp=head;
+  while(temp){
+    cout << temp->data << " ";
+    temp=temp->next;
+  }
+  cout << endl;
+
+  //5.remove nth node from end
+  arr={3,1,2,4,5,6,7};
+  head=convertArr2LL(arr);
+  cout << "Enter node to be deleted: " << endl;
+  int n; cin >> n;
+  head=removeEnd(head,n);
+  cout << "after nth node removal form end" << endl;
   temp=head;
   while(temp){
     cout << temp->data << " ";
