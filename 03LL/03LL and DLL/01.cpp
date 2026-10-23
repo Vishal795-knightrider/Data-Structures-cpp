@@ -214,31 +214,61 @@ Node* sort(Node* head){
 // Explanation: The second node from the back has value 4, so deletion produces [1, 2, 3, 5].
 
 //Brute force
+// Node* removeEnd(Node* head,int n){
+//   Node* temp=head;
+//   int len=0;
+//   while(temp){
+//     len++;
+//     temp=temp->next;
+//   }
+//   temp=head;
+//   int k=len-n;    //ab ye kth position vo uski node ki prev position hai jo hame delete krni hai from the starting
+//   if(k==0){    //iska head delete krna hai from starting
+//     head=head->next;
+//     delete(temp);
+//     return head;
+//   }
+//   temp=head;
+//   while(temp){
+//     k--;            //this will track if i hav reached the before the node to be deleted
+//     if(k==0){
+//       Node* todelete=temp->next;            //we have to delete the temp next node 
+//       temp->next=temp->next->next;
+//       delete(todelete);
+//       break;
+//     }
+//     temp=temp->next;
+//   }
+//   return head;
+// }
+
+
+//optimal (fasr and slow pointer)
+// Intution:if i am at last position node that is bfore to be deleted is 2 steps behind   (if n==2)
+// so in starting i will maintain gap of two then , if am at the last then previous which is 2 gap behind will be at the node before to be deleted
 Node* removeEnd(Node* head,int n){
-  Node* temp=head;
-  int len=0;
-  while(temp){
-    len++;
-    temp=temp->next;
+  Node* fast=head;
+  Node* slow=head;
+  for(int i=0;i<n;i++){
+    fast=fast->next;           //fast ko starting me 2 ki lead de do
   }
-  int k=len-n;    //ab ye kth position vo uski node ki prev position hai jo hame delete krni hai from the starting
-  if(k==0){
+  Node* temp=head;
+  if(fast==NULL){   //that means head node delete hoga
     head=head->next;
     delete(temp);
     return head;
   }
-  temp=head;
-  while(temp){
-    k--;
-    if(k==0){
-      Node* todelete=temp->next;
-      temp->next=temp->next->next;
-      delete(todelete);
-    }
-    temp=temp->next;
+  while(fast->next!=NULL){    //jab tak fast last node pr nhi jata 
+    slow=slow->next;               //slow and fast 1 sath badai jisse n ka gap maintain rahe 
+    fast=fast->next;
   }
+  Node* todelete=slow->next;   //while loop se bahar aake mera fast pointer last nide pr hoga
+  slow->next=slow->next->next;
+  delete(todelete);
   return head;
 }
+
+
 
 int main(){
   vector<int> arr={1,2,3,4,5};
