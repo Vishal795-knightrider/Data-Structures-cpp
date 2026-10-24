@@ -31,21 +31,38 @@ Node* convertArr2LL(vector<int> &arr){
 }
 
 // 1. Reverse LL  (brute force pehle stack me dalo fir nikalo)
+// Node* reverseLL(Node* head){
+//   Node* temp=head;
+//   stack<int> st;
+//   while(temp){
+//     st.push(temp->data);
+//     temp=temp->next;
+//   }
+//   temp=head;
+//   while(temp){
+//     temp->data=st.top();
+//     st.pop();
+//     temp=temp->next;
+//   }
+//   return head;
+// }
+
+
+// optimal (by fixing pointers)
 Node* reverseLL(Node* head){
-  Node* temp=head;
-  stack<int> st;
+  if(head==NULL || head->next==NULL) return head;
+  Node* temp=head;   
+  Node* prev=NULL;      
   while(temp){
-    st.push(temp->data);
-    temp=temp->next;
+    Node* front=temp->next;                 //front bnaya kyu ki next step me temp->next chnage ho jayega then we can go futher 
+    temp->next=prev;                //jispe khade ho uska next prev ko point
+    prev=temp;                     //prev ko age badhao
+    temp=front;                    //temp ko age krdo so that we can apply the same operation in that
   }
-  temp=head;
-  while(temp){
-    temp->data=st.top();
-    st.pop();
-    temp=temp->next;
-  }
-  return head;
+  return prev;
 }
+
+
 
 //2.Add Two Numbers in Linked Lists with Digits in Reverse Order
 // Given the heads of two singly linked lists representing two non-negative integers, add the numbers and return the sum as a new linked list. Each node stores one digit, and digits appear in reverse order, so the head node stores the unit digit.
