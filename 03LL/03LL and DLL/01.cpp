@@ -49,17 +49,28 @@ Node* convertArr2LL(vector<int> &arr){
 
 
 // optimal (by fixing pointers)
+// Node* reverseLL(Node* head){
+//   if(head==NULL || head->next==NULL) return head;
+//   Node* temp=head;   
+//   Node* prev=NULL;      
+//   while(temp){
+//     Node* front=temp->next;                 //front bnaya kyu ki next step me temp->next chnage ho jayega then we can go futher 
+//     temp->next=prev;                //jispe khade ho uska next prev ko point
+//     prev=temp;                     //prev ko age badhao
+//     temp=front;                    //temp ko age krdo so that we can apply the same operation in that
+//   }
+//   return prev;
+// }
+
+
+//optimal using recursion 
 Node* reverseLL(Node* head){
   if(head==NULL || head->next==NULL) return head;
-  Node* temp=head;   
-  Node* prev=NULL;      
-  while(temp){
-    Node* front=temp->next;                 //front bnaya kyu ki next step me temp->next chnage ho jayega then we can go futher 
-    temp->next=prev;                //jispe khade ho uska next prev ko point
-    prev=temp;                     //prev ko age badhao
-    temp=front;                    //temp ko age krdo so that we can apply the same operation in that
-  }
-  return prev;
+  Node* newHead=reverseLL(head->next);
+  Node* front=head->next;
+  front->next=head;
+  head->next=nullptr;
+  return newHead;
 }
 
 
